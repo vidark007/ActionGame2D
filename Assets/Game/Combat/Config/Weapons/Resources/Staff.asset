@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30ced0b8680f0548bc3f384b8e6396b, type: 3}
+  m_Name: Staff
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 4805835126743576932, guid: a05e43b938269d74aa960527be44999c, type: 3}
+  projectile: {fileID: 4845326960938016277, guid: 2140ec01b10be264f9b97bdd7b0b8dda, type: 3}
+  weaponRange: 20
+  weaponDamage: 2

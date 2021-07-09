@@ -1,0 +1,813 @@
+fileFormatVersion: 2
+guid: 8fdffec4fab707b4aa1782bdd0a01ed2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3968280495621463181
+    second: Decor_Natur_0
+  - first:
+      213: -3494004723734886503
+    second: Decor_Natur_2
+  - first:
+      213: 6374793776539166637
+    second: Decor_Natur_3
+  - first:
+      213: 7413759975285364947
+    second: Decor_Natur_4
+  - first:
+      213: 4186977746625065626
+    second: Decor_Natur_6
+  - first:
+      213: 6753235573389662696
+    second: Decor_Natur_7
+  - first:
+      213: 1940047758866909630
+    second: Decor_Natur_8
+  - first:
+      213: -5762367841448982411
+    second: Decor_Natur_10
+  - first:
+      213: 2966934668574624859
+    second: Decor_Natur_12
+  - first:
+      213: -5173323671497442693
+    second: Decor_Natur_16
+  - first:
+      213: 6506762300546768288
+    second: Decor_Natur_18
+  - first:
+      213: -4611782307639355956
+    second: Decor_Natur_19
+  - first:
+      213: 5236693110907281478
+    second: Decor_Natur_24
+  - first:
+      213: 2145763780438770344
+    second: Decor_Natur_25
+  - first:
+      213: 7315376376018198225
+    second: Decor_Natur_26
+  - first:
+      213: 4022689225992958654
+    second: Decor_Natur_27
+  - first:
+      213: 484413637386028659
+    second: Decor_Natur_28
+  - first:
+      213: 6028871067564784254
+    second: Decor_Natur_29
+  - first:
+      213: -5587084450141036254
+    second: Decor_Natur_34
+  - first:
+      213: 478015607697185108
+    second: Decor_Natur_35
+  - first:
+      213: -1781571440598621996
+    second: Decor_Natur_36
+  - first:
+      213: 2320473395067107779
+    second: Decor_Natur_41
+  - first:
+      213: -4287342548011488406
+    second: Decor_Natur_42
+  - first:
+      213: -392446550653652883
+    second: Decor_Natur_43
+  - first:
+      213: 8535853182967926320
+    second: Decor_Natur_44
+  - first:
+      213: -5142928727892993838
+    second: Decor_Natur_45
+  - first:
+      213: -6534291205424041076
+    second: Decor_Natur_46
+  - first:
+      213: -3753123237832490538
+    second: Decor_Natur_47
+  - first:
+      213: -6026586853621988767
+    second: Decor_Natur_48
+  - first:
+      213: -967109973448341558
+    second: Decor_Natur_49
+  - first:
+      213: 6233408235348462772
+    second: Decor_Natur_50
+  - first:
+      213: -7404008344023421056
+    second: Decor_Natur_51
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 200
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Decor_Natur_0
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 6596
+        width: 989
+        height: 2333
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8cd0aef51a221730800000000000000
+      internalID: 3968280495621463181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_2
+      rect:
+        serializedVersion: 2
+        x: 2179
+        y: 7135
+        width: 1634
+        height: 1633
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997ce3e373dc28fc0800000000000000
+      internalID: -3494004723734886503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_3
+      rect:
+        serializedVersion: 2
+        x: 4311
+        y: 7260
+        width: 2287
+        height: 1315
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da7ecf62a21d77850800000000000000
+      internalID: 6374793776539166637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_6
+      rect:
+        serializedVersion: 2
+        x: 7085
+        y: 7268
+        width: 1233
+        height: 1239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a927d06b3122b1a30800000000000000
+      internalID: 4186977746625065626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_7
+      rect:
+        serializedVersion: 2
+        x: 2367
+        y: 6187
+        width: 679
+        height: 602
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e91c6c49ff48bd50800000000000000
+      internalID: 6753235573389662696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_8
+      rect:
+        serializedVersion: 2
+        x: 5467
+        y: 5340
+        width: 1677
+        height: 1427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb90e8a682f6cea10800000000000000
+      internalID: 1940047758866909630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_10
+      rect:
+        serializedVersion: 2
+        x: 4340
+        y: 6269
+        width: 356
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5788c418af4f700b0800000000000000
+      internalID: -5762367841448982411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_12
+      rect:
+        serializedVersion: 2
+        x: 3539
+        y: 6278
+        width: 322
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5c8e209c5bac2920800000000000000
+      internalID: 2966934668574624859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_16
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 5542
+        width: 652
+        height: 649
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a764cb789a438b0800000000000000
+      internalID: -5173323671497442693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_18
+      rect:
+        serializedVersion: 2
+        x: 2443
+        y: 5295
+        width: 502
+        height: 568
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ad5ef986d9ac4a50800000000000000
+      internalID: 6506762300546768288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_19
+      rect:
+        serializedVersion: 2
+        x: 3492
+        y: 5335
+        width: 764
+        height: 573
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc599bbec68afffb0800000000000000
+      internalID: -4611782307639355956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_24
+      rect:
+        serializedVersion: 2
+        x: 5559
+        y: 299
+        width: 5238
+        height: 5081
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6402d51a3a87ca840800000000000000
+      internalID: 5236693110907281478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_25
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 2540
+        width: 973
+        height: 2346
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2c3f02ac847cd10800000000000000
+      internalID: 2145763780438770344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_26
+      rect:
+        serializedVersion: 2
+        x: 2369
+        y: 3861
+        width: 688
+        height: 1085
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1de59d23e00758560800000000000000
+      internalID: 7315376376018198225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_28
+      rect:
+        serializedVersion: 2
+        x: 3458
+        y: 3992
+        width: 445
+        height: 567
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376cfbcf2abf8b600800000000000000
+      internalID: 484413637386028659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_29
+      rect:
+        serializedVersion: 2
+        x: 4420
+        y: 3807
+        width: 622
+        height: 600
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7a34da2b4adaa350800000000000000
+      internalID: 6028871067564784254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_34
+      rect:
+        serializedVersion: 2
+        x: 2483
+        y: 2869
+        width: 418
+        height: 701
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2212c335b40b672b0800000000000000
+      internalID: -5587084450141036254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_35
+      rect:
+        serializedVersion: 2
+        x: 3446
+        y: 2948
+        width: 214
+        height: 257
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45912ed99a042a600800000000000000
+      internalID: 478015607697185108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_36
+      rect:
+        serializedVersion: 2
+        x: 4431
+        y: 2948
+        width: 149
+        height: 285
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d06325c6369647e0800000000000000
+      internalID: -1781571440598621996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_41
+      rect:
+        serializedVersion: 2
+        x: 2483
+        y: 2023
+        width: 541
+        height: 519
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c938b7224af33020800000000000000
+      internalID: 2320473395067107779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_42
+      rect:
+        serializedVersion: 2
+        x: 3588
+        y: 2050
+        width: 257
+        height: 291
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b6b5bfaac4084c0800000000000000
+      internalID: -4287342548011488406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_43
+      rect:
+        serializedVersion: 2
+        x: 4394
+        y: 2056
+        width: 637
+        height: 443
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6036f201ffbd8af0800000000000000
+      internalID: -392446550653652883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_44
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 722
+        width: 819
+        height: 1189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03ec0b9be31757670800000000000000
+      internalID: 8535853182967926320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_45
+      rect:
+        serializedVersion: 2
+        x: 2374
+        y: 713
+        width: 887
+        height: 807
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d859c40295a0a8b0800000000000000
+      internalID: -5142928727892993838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_46
+      rect:
+        serializedVersion: 2
+        x: 4156
+        y: 1371
+        width: 322
+        height: 290
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c83bdb1d4c88155a0800000000000000
+      internalID: -6534291205424041076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_47
+      rect:
+        serializedVersion: 2
+        x: 4760
+        y: 1407
+        width: 271
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d10bb2dc4a3aebc0800000000000000
+      internalID: -3753123237832490538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_48
+      rect:
+        serializedVersion: 2
+        x: 4148
+        y: 849
+        width: 241
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16282d5df234d5ca0800000000000000
+      internalID: -6026586853621988767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_49
+      rect:
+        serializedVersion: 2
+        x: 4648
+        y: 867
+        width: 87
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7cfd56a922492f0800000000000000
+      internalID: -967109973448341558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Decor_Natur_50
+      rect:
+        serializedVersion: 2
+        x: 4985
+        y: 857
+        width: 49
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc80f793c3818650800000000000000
+      internalID: 6233408235348462772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

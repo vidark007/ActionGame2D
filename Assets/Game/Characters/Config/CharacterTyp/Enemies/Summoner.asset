@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fab7fcf679c6934083cae4c8cd8caea, type: 3}
+  m_Name: Summoner
+  m_EditorClassIdentifier: 
+  baseHealth: 20
+  baseRangeCapacity: 8
+  baseDamageAmount: 4
+  attackCoolDownTimer: 4
+  canSummon: 1
+  characterClass: 1
+  summonRange: 0
+  summonTimer: 8
+  invocation: {fileID: 8887958687437300481, guid: f387e9839725b6a4bb2b2134a96c9781, type: 3}
+  projectile: {fileID: 4845326960938016277, guid: 49ab1cd068b782a4288c88bb8c16e36e, type: 3}
