@@ -12,7 +12,7 @@ namespace ActionGame.Stats
         [SerializeField] protected bool canSummon;
 
         [Header("Character Class : Melee - Distance")]
-        [SerializeField] private Charactertyp characterClass;
+        [SerializeField] private Charactertyp  characterClass;
 
        
         #region SummonerCharacteristics_Only
@@ -67,17 +67,6 @@ namespace ActionGame.Stats
                 }
 
                 serializedObject.ApplyModifiedProperties();
-                //EnemyConfigSO enemyCharacertistcs = (EnemyConfigSO)target;
-
-                /*                if (enemyCharacertistcs.canSummon)
-                                {
-                                    
-                                }
-
-                                if(enemyCharacertistcs.characterClass == Charactertyp.Distance)
-                                {
-                                    DrawProjectileDetails(enemyCharacertistcs);
-                                }*/
             }
 
             private void DrawSummonerDetails(EnemyConfigSO summoner)

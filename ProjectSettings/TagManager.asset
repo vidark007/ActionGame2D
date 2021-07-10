@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - Enemy
   - EnemyInnvocation
+  - Projectile
   layers:
   - Default
   - TransparentFX

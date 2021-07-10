@@ -33,7 +33,7 @@ namespace ActionGame.Combat
         {
             GameObject projectilePref = Pooler.Instance.SpawnFromPool();
 
-            projectilePref.GetComponent<Projectile>().SetProjectilValues(dammage, range, gameObject.transform, isPlayer);
+            projectilePref.GetComponent<Projectile>().SetProjectilValues(dammage, range, gameObject.transform); 
         }
 
         public override WeaponConfigSO GetEquippedWeapon()

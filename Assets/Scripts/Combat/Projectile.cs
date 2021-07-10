@@ -26,14 +26,18 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void SetProjectilValues(float damage, float range, Transform sourcePosition, bool isPlayer)
+    public void SetIsPlayerComponent(bool trueFalse)
+    {
+        isPlayerComponent = trueFalse;
+    }
+
+    public void SetProjectilValues(float damage, float range, Transform sourcePosition)
     {
         SetFirstFrameRotation(sourcePosition);
 
         projectileDamage = damage;
         this.sourcePosition = sourcePosition.position;
         this.rangeMax = range;
-        isPlayerComponent = isPlayer;
     }
 
     private void SetFirstFrameRotation(Transform sourcePosition)

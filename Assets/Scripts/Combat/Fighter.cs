@@ -56,7 +56,7 @@ public class Fighter : MonoBehaviour
             if (BaseAttackIsReady())
             {
                 GameObject projectile = gameObject.transform.Find("ProjectilePooler").GetComponent<Pooler>().SpawnFromPool();
-                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, gameObject.transform, false);
+                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, gameObject.transform);
 
                 timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
             }

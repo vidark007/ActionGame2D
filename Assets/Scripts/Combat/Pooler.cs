@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Pooler : MonoBehaviour
 {
-    [SerializeField] GameObject objectToPoolPrefab;
+    GameObject objectToPoolPrefab;
     [SerializeField] List<GameObject> objectPoolersList;
     [SerializeField] protected int amount = 10;
-
+    [Header("Pooler Typ :")]
+    [SerializeField] private PoolerTyp poolerTyp;
     public static Pooler Instance { get; private set;}
+
+    enum PoolerTyp
+    {
+        ProjectilePooler,
+        MobPooler
+    }
+
 
     private void Awake()
     {
@@ -18,14 +26,37 @@ public class Pooler : MonoBehaviour
     private void Start()
     {
         //projectilePool = new List<GameObject>();
+        SetPoolerGameobject();
+
+        if (objectToPoolPrefab != null)
+        {
+            objectPoolersList = GenerateProjectilePool(amount);
+        }
+    }
+
+    private void SetPoolerGameobject()
+    {
         if (GetComponentInParent<CharacterIdentifier>().IsPlayer())
         {
             InstaniatePrefabToPool(GetComponentInParent<CharacterIdentifier>().GetCurrentWeapon().GetProjectile());
         }
-
-        if (objectToPoolPrefab != null)
+        else
         {
-             objectPoolersList = GenerateProjectilePool(amount);
+            CharacterIdentifier characterIdentifier = GetComponentInParent<CharacterIdentifier>();
+
+            if (characterIdentifier.IsCharacterDistanceClass() && poolerTyp == PoolerTyp.ProjectilePooler)
+            {
+                GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
+                InstaniatePrefabToPool(projectile);
+            }
+
+            if (characterIdentifier.IsASummoner() && poolerTyp == PoolerTyp.MobPooler)
+            {
+                GameObject innvocation = characterIdentifier.GetSummoner(out float range, out float coolDown);
+                InstaniatePrefabToPool(innvocation);
+
+            }
+
         }
     }
 
@@ -41,6 +72,14 @@ public class Pooler : MonoBehaviour
         {
             GameObject objectToAddInPool = CreateNewObjectToPool();
             objectPoolersList.Add(objectToAddInPool);
+
+            if(poolerTyp == PoolerTyp.ProjectilePooler)
+            {
+                Projectile projectile = objectToAddInPool.GetComponent<Projectile>();
+                
+                projectile.SetIsPlayerComponent(
+                    GetComponentInParent<CharacterIdentifier>().IsPlayer());
+            }
         }
         return objectPoolersList;
     }

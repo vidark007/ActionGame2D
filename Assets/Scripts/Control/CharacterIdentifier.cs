@@ -56,17 +56,6 @@ public class CharacterIdentifier : MonoBehaviour
             if (enemyConfig.IsSummoner())
             {
                 SetSummoner();
-
-                //Set Pooler
-                gameObject.transform.Find("MobPooler").GetComponent<Pooler>().
-                    InstaniatePrefabToPool(innvocationPrefab);
-            }
-
-            //Set Pooler
-            if(classTyp == EnemyConfigSO.Charactertyp.Distance)
-            {
-                gameObject.transform.Find("ProjectilePooler").GetComponent<Pooler>().
-                    InstaniatePrefabToPool(enemyConfig.GetProjectilePrefab());
             }
         }
 
