@@ -63,7 +63,7 @@ public class Fighter : MonoBehaviour
 
             if (characterIdentifier.IsASummoner())
             {
-                //SummonAMob();
+                SummonAMob();
             }
         }
     }
