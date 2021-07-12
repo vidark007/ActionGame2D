@@ -11,7 +11,7 @@ public class Pooler : MonoBehaviour
     [SerializeField] private PoolerTyp poolerTyp;
     public static Pooler Instance { get; private set;}
 
-    enum PoolerTyp
+    public enum PoolerTyp
     {
         ProjectilePooler,
         MobPooler
@@ -36,25 +36,34 @@ public class Pooler : MonoBehaviour
 
     private void SetPoolerGameobject()
     {
-        if (GetComponentInParent<CharacterIdentifier>().IsPlayer())
-        {
-            InstaniatePrefabToPool(GetComponentInParent<CharacterIdentifier>().GetCurrentWeapon().GetProjectile());
-        }
-        else
+        if (poolerTyp == PoolerTyp.ProjectilePooler)
         {
             CharacterIdentifier characterIdentifier = GetComponentInParent<CharacterIdentifier>();
 
-            if (characterIdentifier.IsCharacterDistanceClass() && poolerTyp == PoolerTyp.ProjectilePooler)
+            if (characterIdentifier.IsPlayer())
             {
-                GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
-                InstaniatePrefabToPool(projectile);
+                InstaniatePrefabToPool(characterIdentifier.GetCurrentWeapon().GetProjectile());
             }
-
-            if (characterIdentifier.IsASummoner() && poolerTyp == PoolerTyp.MobPooler)
+            else
+            {
+                if (characterIdentifier.IsCharacterDistanceClass())
+                {
+                    GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
+                    InstaniatePrefabToPool(projectile);
+                }
+            }
+        }
+        
+        else if(poolerTyp == PoolerTyp.MobPooler)
+        {
+           
+            int siblingIndex = GameObject.Find("Body").transform.GetSiblingIndex();
+            CharacterIdentifier characterIdentifier = transform.parent.GetChild(siblingIndex).GetComponent<CharacterIdentifier>();
+ 
+            if(characterIdentifier != null)
             {
                 GameObject innvocation = characterIdentifier.GetSummoner(out float range, out float coolDown);
                 InstaniatePrefabToPool(innvocation);
-
             }
 
         }

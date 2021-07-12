@@ -81,7 +81,12 @@ public class Fighter : MonoBehaviour
         
         if(Time.time >= timeSinceLastSummon)
         {
-            GameObject innvocation = gameObject.transform.Find("MobPooler").GetComponent<Pooler>().SpawnFromPool();
+            int moobPoolerIndex = GameObject.Find(Pooler.PoolerTyp.MobPooler.ToString())
+                .transform.GetSiblingIndex();
+
+            GameObject innvocation = transform.parent.GetChild(moobPoolerIndex).GetComponent<Pooler>().SpawnFromPool();
+
+            if (innvocation == null) Debug.Log(innvocation);
             innvocation.transform.position = transform.position + new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
 
             innvocation.GetComponent<AIController>().SetEnemyToAggressif();
