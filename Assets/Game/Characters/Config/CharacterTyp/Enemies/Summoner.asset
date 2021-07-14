@@ -15,10 +15,10 @@ MonoBehaviour:
   baseHealth: 20
   baseRangeCapacity: 8
   baseDamageAmount: 4
-  attackCoolDownTimer: 4
+  attackCoolDownTimer: 2
   canSummon: 1
   characterClass: 1
-  summonRange: 0
+  summonRange: 10
   summonTimer: 8
   invocation: {fileID: 5602769062840808579, guid: f387e9839725b6a4bb2b2134a96c9781, type: 3}
   projectile: {fileID: 4845326960938016277, guid: 49ab1cd068b782a4288c88bb8c16e36e, type: 3}

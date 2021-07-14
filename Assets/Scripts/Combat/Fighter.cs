@@ -8,8 +8,8 @@ public class Fighter : MonoBehaviour
     CharacterIdentifier characterIdentifier;
 
     float timerBetweenBaseAttack;
-    [SerializeField] float timeSinceLastAttack = 0f;
-    [SerializeField] float timeSinceLastSummon = 0f;
+    float timeSinceLastAttack = 0f;
+    float timeSinceLastSummon = 0f;
     [SerializeField] float meleeAttackSpeed =8f;
 
     public static event Action<float,float,bool> onPlayerAttackEvent;
@@ -56,14 +56,17 @@ public class Fighter : MonoBehaviour
             if (BaseAttackIsReady())
             {
                 GameObject projectile = gameObject.transform.Find("ProjectilePooler").GetComponent<Pooler>().SpawnFromPool();
-                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, gameObject.transform);
+
+                Transform projectileSpawnPosition = GameObject.Find("ProjectileSpawnPosition").transform;
+
+                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, projectileSpawnPosition);
 
                 timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
             }
 
             if (characterIdentifier.IsASummoner())
             {
-                SummonAMob();
+                //SummonAMob();
             }
         }
     }

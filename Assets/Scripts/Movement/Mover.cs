@@ -53,15 +53,15 @@ public class Mover : MonoBehaviour
 
         if (moveAmout != Vector2.zero || enemyIsMovingAnimation)
         {
-            PlayerAnimationController(MoverAnimation.isRunnging, true);
+            AnimationMoveController(MoverAnimation.isRunnging, true);
         }
         else
         {
-            PlayerAnimationController(MoverAnimation.isRunnging, false);
+            AnimationMoveController(MoverAnimation.isRunnging, false);
         }
     }
 
-    private void PlayerAnimationController(MoverAnimation animation, bool isMoving)
+    private void AnimationMoveController(MoverAnimation animation, bool isMoving)
     {
         int animationId = Animator.StringToHash(animation.ToString());
 
