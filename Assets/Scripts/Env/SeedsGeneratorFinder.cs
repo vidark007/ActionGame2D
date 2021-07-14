@@ -16,20 +16,18 @@ namespace Env
                     .OfType<ISeedGenerator>()
                     .ToArray().ToList();
             
-                Debug.Log($"Found {seeds.Count} seeds to generate");
+                //Debug.Log($"Found {seeds.Count} seeds to generate");
             
                 foreach (ISeedGenerator terrainSeed in seeds)
                 {
-                    Debug.Log(
-                        $"Generating a {terrainSeed.getName()} seed at position {terrainSeed.getTransform().position}");
+                    //Debug.Log($"Generating a {terrainSeed.getName()} seed at position {terrainSeed.getTransform().position}");
                     List<GameObject> generated = terrainSeed.generate();
-                    Debug.Log(
-                        $"Generated {generated.Count} elements");
+                    //Debug.Log($"Generated {generated.Count} elements");
                 }
             }
             else
             {
-                Debug.Log("Seed generator disabled");
+                //Debug.Log("Seed generator disabled");
             }
         }
     }

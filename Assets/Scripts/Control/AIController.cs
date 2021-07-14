@@ -27,7 +27,7 @@ public class AIController : MonoBehaviour
     int currentWaypointIndex = 0;
     float timeSinceArrivedWayPoint = Mathf.Infinity;
     [SerializeField] float waypointDwellTime = 3f;
-    [SerializeField] [Range(0f,10f)]float patrolingSpeed = 2f;
+    [SerializeField] [Range(0f,10f)]float patrolingSpeedDivisor  = 2f;
 
     private void Awake()
     {
@@ -157,7 +157,7 @@ public class AIController : MonoBehaviour
 
         if (timeSinceArrivedWayPoint > waypointDwellTime)
         {
-            mover.Move(nextPosition, patrolingSpeed);
+            mover.Move(nextPosition, patrolingSpeedDivisor);
         }
     }
 

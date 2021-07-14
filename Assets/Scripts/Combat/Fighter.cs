@@ -85,8 +85,6 @@ public class Fighter : MonoBehaviour
                 .transform.GetSiblingIndex();
 
             GameObject innvocation = transform.parent.GetChild(moobPoolerIndex).GetComponent<Pooler>().SpawnFromPool();
-
-            if (innvocation == null) Debug.Log(innvocation);
             innvocation.transform.position = transform.position + new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
 
             innvocation.GetComponent<AIController>().SetEnemyToAggressif();

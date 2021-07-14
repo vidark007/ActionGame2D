@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8998991438979391498}
   - component: {fileID: 4853844855969443966}
+  - component: {fileID: 3940436075753677081}
   m_Layer: 0
   m_Name: Rock04
   m_TagString: Untagged
@@ -68,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1930094767
+  m_SortingLayerID: 425297649
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4186977746625065626, guid: 8fdffec4fab707b4aa1782bdd0a01ed2, type: 3}
@@ -81,4 +82,30 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!61 &3940436075753677081
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212568062632983926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.20875168, y: 2.0541248}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.56983054, y: 0.101878166}
+    oldSize: {x: 6.1649995, y: 6.196791}
+    newSize: {x: 6.1649995, y: 6.196791}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.6685257, y: 0.06993103}
+  m_EdgeRadius: 0

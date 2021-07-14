@@ -50,10 +50,7 @@ TagManager:
   - name: Ground
     uniqueID: 2377624575
     locked: 0
-  - name: Decor
-    uniqueID: 2364872529
-    locked: 0
-  - name: Character
+  - name: AllFrontLayer
     uniqueID: 425297649
     locked: 0
   - name: Projectile

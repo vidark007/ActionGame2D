@@ -44,13 +44,11 @@ public class Projectile : MonoBehaviour
     {
         if (isPlayerComponent)
         {
-            Debug.Log("IsPlayer : " + isPlayerComponent);
             transform.position = sourcePosition.position;
             transform.rotation = sourcePosition.rotation;
         }
         else if(!isPlayerComponent)
         {
-            Debug.Log("IsPlayer : " + isPlayerComponent);
                transform.position = sourcePosition.position;
             Vector3 moveDir = (target - transform.position).normalized;
             transform.localEulerAngles = new Vector3(0, 0, (GetAngleFromVector(moveDir)-90));

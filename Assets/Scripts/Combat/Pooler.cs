@@ -57,7 +57,7 @@ public class Pooler : MonoBehaviour
         else if(poolerTyp == PoolerTyp.MobPooler)
         {
            
-            int siblingIndex = GameObject.Find("Body").transform.GetSiblingIndex();
+            int siblingIndex = GameObject.Find("SummonerBody").transform.GetSiblingIndex();
             CharacterIdentifier characterIdentifier = transform.parent.GetChild(siblingIndex).GetComponent<CharacterIdentifier>();
  
             if(characterIdentifier != null)
@@ -95,7 +95,7 @@ public class Pooler : MonoBehaviour
 
     private GameObject CreateNewObjectToPool()
     {
-        GameObject newObject = Instantiate(objectToPoolPrefab);
+        GameObject newObject = Instantiate(objectToPoolPrefab); 
         newObject.transform.parent = this.transform;
         newObject.SetActive(false);
 
