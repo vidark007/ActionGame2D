@@ -11,6 +11,7 @@ public class Fighter : MonoBehaviour
     float timeSinceLastAttack = 0f;
     float timeSinceLastSummon = 0f;
     [SerializeField] float meleeAttackSpeed =8f;
+    [SerializeField] Transform projectileSpawnPosition;
 
     public static event Action<float,float,bool> onPlayerAttackEvent;
     int counter = 0;
@@ -27,9 +28,24 @@ public class Fighter : MonoBehaviour
         {
             target = GameObject.FindWithTag("Player").GetComponent<Health>();
         }
+        if (characterIdentifier.IsCharacterDistanceClass())
+        {
+            SetEnemyShootPosition();
+        }
     }
 
+    private void SetEnemyShootPosition()
+    {
+        foreach (Transform child in transform)
+        {
 
+            if (child.name == "ProjectileSpawnPosition")
+            {
+                Debug.Log(child.name);
+                projectileSpawnPosition = child.GetComponent<Transform>();
+            }
+        }
+    }
 
     public void BasicAttack()
     {
@@ -57,7 +73,6 @@ public class Fighter : MonoBehaviour
             {
                 GameObject projectile = gameObject.transform.Find("ProjectilePooler").GetComponent<Pooler>().SpawnFromPool();
 
-                Transform projectileSpawnPosition = GameObject.Find("ProjectileSpawnPosition").transform;
 
                 projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, projectileSpawnPosition);
 

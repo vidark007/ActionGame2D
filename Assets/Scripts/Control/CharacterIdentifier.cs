@@ -3,8 +3,18 @@ using ActionGame.Stats;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
+#region RequireComponent
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SortingGroup))]
 
+[RequireComponent(typeof(Health))]
+[RequireComponent(typeof(Fighter))]
+[RequireComponent(typeof(Mover))]
+#endregion
 public class CharacterIdentifier : MonoBehaviour
 {
     CharacterConfigSO character;
@@ -24,6 +34,7 @@ public class CharacterIdentifier : MonoBehaviour
     [SerializeField] float summonRange, summonCoolDownTimer;
     [SerializeField] GameObject innvocationPrefab;
 
+    
     //Mon Invocation => GetAggressif
     public event Action onAIIsAInnvocation;
 
