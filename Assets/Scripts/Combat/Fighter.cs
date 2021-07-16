@@ -31,6 +31,9 @@ public class Fighter : MonoBehaviour
                 SetShootPosition();
             }
         }
+
+        #region TO EDIT --------------------------------------------
+
         if (characterIdentifier.IsPlayer())
         {
             foreach (Transform child in transform.GetComponentsInChildren<Transform>())
@@ -67,14 +70,14 @@ public class Fighter : MonoBehaviour
 
         foreach (Transform child in transform.parent)
         {
-            if (child.name == "ProjectilePooler")
+            if (child.name == Pooler.PoolerTyp.ProjectilePooler.ToString())
             {
                 projectilePooler = child.GetComponent<Pooler>();
             }
 
         }
     }
-
+    #endregion----------------------------------------------------------
     public void BasicAttack()
     {
 

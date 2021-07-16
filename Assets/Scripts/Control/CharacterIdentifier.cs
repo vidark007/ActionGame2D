@@ -17,6 +17,7 @@ using UnityEngine.Rendering;
 #endregion
 public class CharacterIdentifier : MonoBehaviour
 {
+    private const string gameobjectsNameWithComponentCharacterIdentifier = "Character";
     CharacterConfigSO character;
     
     [SerializeField] EnemyConfigSO enemyConfig;
@@ -40,6 +41,9 @@ public class CharacterIdentifier : MonoBehaviour
 
     private void Awake()
     {
+        //preventing Error => MagicString in Fighter
+        SetThisGameobjectName();
+
         StartCoroutine(SetCharacterValuesOnAwake());
 
         if (IsWeaponCarrierCharacter())
@@ -49,6 +53,11 @@ public class CharacterIdentifier : MonoBehaviour
 
         SetDamage();
 
+    }
+
+    private void SetThisGameobjectName()
+    {
+        gameObject.name = gameobjectsNameWithComponentCharacterIdentifier;
     }
 
     IEnumerator SetCharacterValuesOnAwake()
