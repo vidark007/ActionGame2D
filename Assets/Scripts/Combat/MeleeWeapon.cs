@@ -9,10 +9,6 @@ namespace ActionGame.Combat
 {
     public class MeleeWeapon : Weapon
     {
-        public override void AttackBehavior(float dammage, float range, bool isPlayer)
-        {
-           
-        }
 
         public override WeaponConfigSO GetEquippedWeapon()
         {

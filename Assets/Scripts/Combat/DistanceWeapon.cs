@@ -19,23 +19,6 @@ namespace ActionGame.Combat
             weapon = Resources.Load<WeaponConfigSO>(weaponName.ToString());
         }
 
-        private void OnEnable()
-        {
-            Fighter.onPlayerAttackEvent += AttackBehavior;
-        }
-
-        private void OnDisable()
-        {
-            Fighter.onPlayerAttackEvent -= AttackBehavior;
-        }
-
-        public override void AttackBehavior(float dammage,float range, bool isPlayer)
-        {
-            GameObject projectilePref = Pooler.Instance.SpawnFromPool();
-
-            projectilePref.GetComponent<Projectile>().SetProjectilValues(dammage, range, gameObject.transform); 
-        }
-
         public override WeaponConfigSO GetEquippedWeapon()
         {
             return weapon;

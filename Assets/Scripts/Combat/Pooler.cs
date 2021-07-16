@@ -9,6 +9,7 @@ public class Pooler : MonoBehaviour
     [SerializeField] protected int amount = 10;
     [Header("Pooler Typ :")]
     [SerializeField] private PoolerTyp poolerTyp;
+    [SerializeField] CharacterIdentifier characterIdentifier;
     public static Pooler Instance { get; private set;}
 
     public enum PoolerTyp
@@ -30,40 +31,55 @@ public class Pooler : MonoBehaviour
 
         if (objectToPoolPrefab != null)
         {
-            objectPoolersList = GenerateProjectilePool(amount);
+            objectPoolersList = GenerateGameObjectPool(amount);
         }
     }
 
     private void SetPoolerGameobject()
     {
+        FindCharacterIdentifierInMyHierarchy();
+
         if (poolerTyp == PoolerTyp.ProjectilePooler)
         {
-            CharacterIdentifier characterIdentifier = GetComponentInParent<CharacterIdentifier>();
-
-            if (characterIdentifier.IsPlayer())
+            if (characterIdentifier != null)
             {
-                InstaniatePrefabToPool(characterIdentifier.GetCurrentWeapon().GetProjectile());
-            }
-            else
-            {
-                if (characterIdentifier.IsCharacterDistanceClass())
+                if (characterIdentifier.IsPlayer())
                 {
-                    GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
-                    InstaniatePrefabToPool(projectile);
+                    InstaniatePrefabToPool(characterIdentifier.GetCurrentWeapon().GetProjectile());
+                }
+                else
+                {
+                    if (characterIdentifier.IsCharacterDistanceClass())
+                    {
+                        GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
+                        InstaniatePrefabToPool(projectile);
+                    }
                 }
             }
         }
-        
-        else if(poolerTyp == PoolerTyp.MobPooler)
+
+        else if (poolerTyp == PoolerTyp.MobPooler)
         {
-           
-            int siblingIndex = GameObject.Find("SummonerBody").transform.GetSiblingIndex();
+
+            int siblingIndex = GameObject.Find("Character").transform.GetSiblingIndex();
             CharacterIdentifier characterIdentifier = transform.parent.GetChild(siblingIndex).GetComponent<CharacterIdentifier>();
- 
-            if(characterIdentifier != null)
+
+            if (characterIdentifier != null)
             {
                 GameObject innvocation = characterIdentifier.GetSummoner(out float range, out float coolDown);
                 InstaniatePrefabToPool(innvocation);
+            }
+
+        }
+    }
+
+    private void FindCharacterIdentifierInMyHierarchy()
+    {
+        foreach (Transform child in transform.parent)
+        {
+            if (child.name == "Character")
+            {
+                characterIdentifier = child.GetComponent<CharacterIdentifier>();
             }
 
         }
@@ -74,7 +90,7 @@ public class Pooler : MonoBehaviour
         objectToPoolPrefab = prefab;
     }
 
-    List<GameObject> GenerateProjectilePool(int amount)
+    List<GameObject> GenerateGameObjectPool(int amount)
     {
        
         for(int i =0; i < amount; i++)
@@ -87,7 +103,7 @@ public class Pooler : MonoBehaviour
                 Projectile projectile = objectToAddInPool.GetComponent<Projectile>();
                 
                 projectile.SetIsPlayerComponent(
-                    GetComponentInParent<CharacterIdentifier>().IsPlayer());
+                    characterIdentifier.IsPlayer());
             }
         }
         return objectPoolersList;

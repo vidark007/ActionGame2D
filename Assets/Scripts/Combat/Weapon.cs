@@ -42,7 +42,5 @@ public abstract class Weapon : MonoBehaviour
 
     public abstract WeaponConfigSO GetEquippedWeapon();
 
-    public abstract void AttackBehavior(float dammage, float range , bool isPlayer);
-
     
 }

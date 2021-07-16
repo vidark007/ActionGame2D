@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db376610324689544b39717295a95872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 23
   lifeTime: 3
   distanceOfProjectile: 0
   hitEffect: {fileID: 474012565927823062, guid: f9d9460375d624b43bb4f82d573f65da, type: 3}
@@ -119,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020502508, y: -0.022106051}
+  m_Offset: {x: 0.020502508, y: 0.029132739}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -130,5 +130,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5905235, y: 0.6601467}
+  m_Size: {x: 0.5905235, y: 0.76262426}
   m_EdgeRadius: 0

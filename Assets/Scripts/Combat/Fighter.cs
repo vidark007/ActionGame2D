@@ -12,9 +12,7 @@ public class Fighter : MonoBehaviour
     float timeSinceLastSummon = 0f;
     [SerializeField] float meleeAttackSpeed =8f;
     [SerializeField] Transform projectileSpawnPosition;
-
-    public static event Action<float,float,bool> onPlayerAttackEvent;
-    int counter = 0;
+    [SerializeField] Pooler projectilePooler;
 
 
     Health target;
@@ -27,23 +25,53 @@ public class Fighter : MonoBehaviour
         if (!characterIdentifier.IsPlayer())
         {
             target = GameObject.FindWithTag("Player").GetComponent<Health>();
+
+            if (characterIdentifier.IsCharacterDistanceClass())
+            {
+                SetShootPosition();
+            }
         }
-        if (characterIdentifier.IsCharacterDistanceClass())
+        if (characterIdentifier.IsPlayer())
         {
-            SetEnemyShootPosition();
+            foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+            {
+                if (child.name == "ProjectileSpawnPosition")
+                {
+                    projectileSpawnPosition = child.GetComponent<Transform>();
+                }
+            }
+
+            foreach (Transform child in transform.parent)
+            {
+                if (child.name == "ProjectilePooler")
+                {
+                    projectilePooler = child.GetComponent<Pooler>();
+                }
+
+            }
         }
+
     }
 
-    private void SetEnemyShootPosition()
+
+    private void SetShootPosition()
     {
         foreach (Transform child in transform)
         {
 
             if (child.name == "ProjectileSpawnPosition")
             {
-                Debug.Log(child.name);
                 projectileSpawnPosition = child.GetComponent<Transform>();
             }
+        }
+
+        foreach (Transform child in transform.parent)
+        {
+            if (child.name == "ProjectilePooler")
+            {
+                projectilePooler = child.GetComponent<Pooler>();
+            }
+
         }
     }
 
@@ -55,7 +83,10 @@ public class Fighter : MonoBehaviour
             if (BaseAttackIsReady())
             {
 
-                onPlayerAttackEvent?.Invoke(characterIdentifier.GetCharacterDamage(), characterIdentifier.GetAttackRange(),true);
+                GameObject projectile = projectilePooler.SpawnFromPool();
+
+                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), characterIdentifier.GetAttackRange(), projectileSpawnPosition);
+
                 timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
             }
         }
@@ -71,8 +102,7 @@ public class Fighter : MonoBehaviour
         {
             if (BaseAttackIsReady())
             {
-                GameObject projectile = gameObject.transform.Find("ProjectilePooler").GetComponent<Pooler>().SpawnFromPool();
-
+                GameObject projectile = projectilePooler.SpawnFromPool();
 
                 projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, projectileSpawnPosition);
 
