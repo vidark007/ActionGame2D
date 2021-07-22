@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 8234566358840938146}
   m_Layer: 0
   m_Name: Summoner
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8234566359089659213}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ProjectileSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -232,7 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566359353517701}
   - component: {fileID: 8234566359353517700}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RHand01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566359518871000}
   - component: {fileID: 8234566359518871003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RWig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566359592175505}
   - component: {fileID: 8234566359592175504}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566359651545011}
   - component: {fileID: 8234566359651545010}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -598,7 +598,7 @@ GameObject:
   - component: {fileID: 8234566359732341512}
   - component: {fileID: 8234566359732341515}
   - component: {fileID: 8234566359732341514}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 800
+  m_Mass: 2000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -753,7 +753,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeAttackSpeed: 8
-  projectileSpawnPosition: {fileID: 0}
 --- !u!114 &8234566359732341515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,7 +833,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566359876128543}
   - component: {fileID: 8234566359876128542}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LWig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,9 +915,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566359978841004}
   - component: {fileID: 8234566359978841007}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: ProjectilePooler
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -952,6 +951,7 @@ MonoBehaviour:
   objectPoolersList: []
   amount: 4
   poolerTyp: 0
+  characterIdentifier: {fileID: 0}
 --- !u!1 &8234566360165069103
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,7 +962,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360165069102}
   - component: {fileID: 8234566360165069089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RCoat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1044,7 +1044,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360171047672}
   - component: {fileID: 8234566360171047675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RHand02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1126,7 +1126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360200111256}
   - component: {fileID: 8234566360200111259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1217,9 +1217,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360232909692}
   - component: {fileID: 8234566360232909695}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MobPooler
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1253,6 +1253,7 @@ MonoBehaviour:
   objectPoolersList: []
   amount: 10
   poolerTyp: 1
+  characterIdentifier: {fileID: 0}
 --- !u!1 &8234566360452521316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360452521319}
   - component: {fileID: 8234566360452521318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHand01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1345,7 +1346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360578743088}
   - component: {fileID: 8234566360578743091}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,7 +1428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360586673858}
   - component: {fileID: 8234566360586673861}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LHand02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,7 +1510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8234566360587111794}
   - component: {fileID: 8234566360587111797}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LCoat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

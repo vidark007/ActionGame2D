@@ -157,4 +157,6 @@ public class CharacterIdentifier : MonoBehaviour
 
     public GameObject GetEnemiesProjectilePrefab() => enemyConfig.GetProjectilePrefab();
 
+    public bool HasAnAttackAnimation() => enemyConfig.HasAnAttackAnimation();
+
 }

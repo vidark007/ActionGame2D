@@ -99,6 +99,7 @@ public class AIController : MonoBehaviour
     {
         if (isAlerted)
         {
+            //Stop running Coroutine
             StopCoroutine("Timer_SetAlertedBehaviourOff");
         }
         if (!isAlerted)
@@ -152,7 +153,6 @@ public class AIController : MonoBehaviour
 
             nextPosition = GetCurrentWaypoint();
         }
-
         mover.StopEnemyMovingAnimation();
 
         if (timeSinceArrivedWayPoint > waypointDwellTime)

@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 6812783130467365113}
   - component: {fileID: 4247356562281957607}
   - component: {fileID: 5602769062840808576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Summoner_Mob
   m_TagString: EnemyInnvocation
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   suspicousTime: 5
   isAlerted: 0
   waypointDwellTime: 3
-  patrolingSpeed: 2
+  patrolingSpeedDivisor: 2
 --- !u!114 &5602769062840808583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624cc9867a053404e9a50a8c11a3e82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 7
 --- !u!114 &5602769062840808580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +235,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 800
+  m_Mass: 400
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -282,8 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997b3da902d64634b85bf401023487c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSinceLastAttack: 0
-  timeSinceLastSummon: 0
   meleeAttackSpeed: 8
 --- !u!210 &5602769062840808576
 SortingGroup:
@@ -306,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5602769062875246064}
   - component: {fileID: 5602769062875246067}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LLeg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5602769063114861383}
   - component: {fileID: 5602769063114861382}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -470,7 +468,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5602769063120652637}
   - component: {fileID: 5602769063120652636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5602769064244014565}
   - component: {fileID: 5602769064244014564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

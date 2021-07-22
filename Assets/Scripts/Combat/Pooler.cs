@@ -54,6 +54,7 @@ public class Pooler : MonoBehaviour
                         GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
                         InstaniatePrefabToPool(projectile);
                     }
+
                 }
             }
         }
@@ -61,10 +62,7 @@ public class Pooler : MonoBehaviour
         else if (poolerTyp == PoolerTyp.MobPooler)
         {
 
-            int siblingIndex = GameObject.Find("Character").transform.GetSiblingIndex();
-            CharacterIdentifier characterIdentifier = transform.parent.GetChild(siblingIndex).GetComponent<CharacterIdentifier>();
-
-            if (characterIdentifier != null)
+            if (characterIdentifier.IsASummoner())
             {
                 GameObject innvocation = characterIdentifier.GetSummoner(out float range, out float coolDown);
                 InstaniatePrefabToPool(innvocation);

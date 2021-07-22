@@ -14,7 +14,9 @@ namespace ActionGame.Stats
         [Header("Character Class : Melee - Distance")]
         [SerializeField] private Charactertyp  characterClass;
 
-       
+        [Header("Attack Animation")]
+        [SerializeField] private bool hasAnAttackAnimation = false;
+
         #region SummonerCharacteristics_Only
         [HideInInspector] [SerializeField] private float summonRange;
         [HideInInspector] [SerializeField] private float summonTimer = 5f;
@@ -35,6 +37,8 @@ namespace ActionGame.Stats
         }
 
         public bool IsSummoner() => canSummon;
+
+        public bool HasAnAttackAnimation() => hasAnAttackAnimation;
 
         public bool IsSummoner(out float range, out float timer, out GameObject invocation)
         {

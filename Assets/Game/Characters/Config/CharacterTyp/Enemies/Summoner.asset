@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Summoner
   m_EditorClassIdentifier: 
   baseHealth: 20
-  baseRangeCapacity: 8
+  baseRangeCapacity: 15
   baseDamageAmount: 4
   attackCoolDownTimer: 2
   canSummon: 1
   characterClass: 1
+  hasAnAttackAnimation: 0
   summonRange: 10
   summonTimer: 8
   invocation: {fileID: 5602769062840808579, guid: f387e9839725b6a4bb2b2134a96c9781, type: 3}

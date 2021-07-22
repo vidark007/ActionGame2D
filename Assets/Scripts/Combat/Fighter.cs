@@ -11,8 +11,12 @@ public class Fighter : MonoBehaviour
     float timeSinceLastAttack = 0f;
     float timeSinceLastSummon = 0f;
     [SerializeField] float meleeAttackSpeed =8f;
-    [SerializeField] Transform projectileSpawnPosition;
-    [SerializeField] Pooler projectilePooler;
+    Transform projectileSpawnPosition;
+    
+    Pooler projectilePooler;
+    Pooler mobPooler;
+
+    Animator animator;
 
 
     Health target;
@@ -20,46 +24,39 @@ public class Fighter : MonoBehaviour
     {
         characterIdentifier = GetComponent<CharacterIdentifier>();
         timerBetweenBaseAttack = characterIdentifier.GetTimeBetweenAttack();
+        animator = GetComponent<Animator>();
 
         //for enemy we take component "Health" from Player
         if (!characterIdentifier.IsPlayer())
         {
             target = GameObject.FindWithTag("Player").GetComponent<Health>();
 
-            if (characterIdentifier.IsCharacterDistanceClass())
-            {
-                SetShootPosition();
-            }
         }
 
-        #region TO EDIT --------------------------------------------
-
-        if (characterIdentifier.IsPlayer())
+        if (characterIdentifier.IsCharacterDistanceClass() || characterIdentifier.IsPlayer())
         {
-            foreach (Transform child in transform.GetComponentsInChildren<Transform>())
-            {
-                if (child.name == "ProjectileSpawnPosition")
-                {
-                    projectileSpawnPosition = child.GetComponent<Transform>();
-                }
-            }
+            FindAndSetChildrenComponent();
+        }
 
+        if (characterIdentifier.IsASummoner())
+        {
             foreach (Transform child in transform.parent)
             {
-                if (child.name == "ProjectilePooler")
+                if (child.name == Pooler.PoolerTyp.MobPooler.ToString())
                 {
-                    projectilePooler = child.GetComponent<Pooler>();
+                    mobPooler = child.GetComponent<Pooler>();
                 }
 
             }
         }
+
 
     }
 
 
-    private void SetShootPosition()
+    private void FindAndSetChildrenComponent()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
 
             if (child.name == "ProjectileSpawnPosition")
@@ -77,10 +74,9 @@ public class Fighter : MonoBehaviour
 
         }
     }
-    #endregion----------------------------------------------------------
+
     public void BasicAttack()
     {
-
         if (characterIdentifier.IsPlayer())
         {
             if (BaseAttackIsReady())
@@ -90,7 +86,7 @@ public class Fighter : MonoBehaviour
 
                 projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), characterIdentifier.GetAttackRange(), projectileSpawnPosition);
 
-                timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
+                timeSinceLastAttack = Time.time + timerBetweenBaseAttack;  
             }
         }
         else if (characterIdentifier.IsCharacterMeleeClass())
@@ -103,20 +99,39 @@ public class Fighter : MonoBehaviour
         }
         else if (characterIdentifier.IsCharacterDistanceClass())
         {
-            if (BaseAttackIsReady())
+            if (!characterIdentifier.HasAnAttackAnimation())
             {
-                GameObject projectile = projectilePooler.SpawnFromPool();
+                if (BaseAttackIsReady())
+                {
+                    RangeAttack();
 
-                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, projectileSpawnPosition);
+                    timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
+                }
 
-                timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
+            }
+            else
+            {
+                animator.SetTrigger("attack");
             }
 
             if (characterIdentifier.IsASummoner())
             {
-                //SummonAMob();
+                SummonAMob();
             }
+
         }
+    }
+
+    public void AttackTriggerAnimation()
+    {       
+        RangeAttack();
+    }
+
+    private void RangeAttack()
+    {
+        GameObject projectile = projectilePooler.SpawnFromPool();
+
+        projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), 20, projectileSpawnPosition);
     }
 
     private bool BaseAttackIsReady()
@@ -132,10 +147,8 @@ public class Fighter : MonoBehaviour
         
         if(Time.time >= timeSinceLastSummon)
         {
-            int moobPoolerIndex = GameObject.Find(Pooler.PoolerTyp.MobPooler.ToString())
-                .transform.GetSiblingIndex();
 
-            GameObject innvocation = transform.parent.GetChild(moobPoolerIndex).GetComponent<Pooler>().SpawnFromPool();
+            GameObject innvocation = mobPooler.SpawnFromPool();
             innvocation.transform.position = transform.position + new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
 
             innvocation.GetComponent<AIController>().SetEnemyToAggressif();

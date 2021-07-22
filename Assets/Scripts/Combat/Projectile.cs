@@ -3,26 +3,31 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float speed = 10f;
-    [SerializeField] private float lifeTime = 5f;
-    [SerializeField] private float distanceOfProjectile;
+    private float distanceOfProjectile;
 
     public GameObject hitEffect = null;
-    [SerializeField] private float projectileDamage = 0f;
+    private float projectileDamage = 0f;
 
-    [SerializeField] Vector3 sourcePosition;
-    [SerializeField] float rangeMax;
+    Vector3 sourcePosition;
+    float rangeMax;
 
-    [SerializeField] bool isPlayerComponent = false;
-    [SerializeField] Vector3 target;
-    [SerializeField] float m_Angle;
+    bool isPlayerComponent = false;
+    Vector3 target;
+
 
 
     private void OnEnable()
     {
         if (!isPlayerComponent)
         {
-            target = GameObject.FindWithTag("Player").transform.position;
-            m_Angle = Vector2.Angle(transform.localPosition, target);
+            if(GameObject.FindWithTag("Player") != null)
+            {
+                target = GameObject.FindWithTag("Player").transform.position;
+            }
+            else
+            {
+                target = transform.position + new Vector3(0,0, -90); ;
+            }
         }
     }
 

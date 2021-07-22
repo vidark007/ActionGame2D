@@ -28,11 +28,6 @@ public class Mover : MonoBehaviour
         identifier = GetComponent<CharacterIdentifier>();
     }
 
-    private void Update()
-    {
-
-        
-    }
 
     public void Move(Vector2 moveTo, float factor)
     {

@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 20
   baseRangeCapacity: 3
-  baseDamageAmount: 4
+  baseDamageAmount: 2
   attackCoolDownTimer: 1
   canSummon: 0
   characterClass: 0
+  hasAnAttackAnimation: 0
+  summonRange: 0
+  summonTimer: 5
+  invocation: {fileID: 0}
+  projectile: {fileID: 0}
