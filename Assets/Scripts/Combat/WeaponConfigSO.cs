@@ -12,6 +12,9 @@ namespace ActionGame.Combat
         [SerializeField] float weaponRange = 0f;
         [SerializeField] float weaponDamage = 2f;
 
+        [Header("Weapon Base Stats (Weapon CoolDown (Timer)")]
+        [SerializeField] protected float attackCoolDownTimer;
+
         public GameObject GetProjectile()
         {
             return projectile;
@@ -21,5 +24,6 @@ namespace ActionGame.Combat
 
         public Weapon GetWeapon() => weapon;
         public float GetWeaponRange() => weaponRange;
+        public float GetTimerBetweenAttack() => attackCoolDownTimer;
     }
 }

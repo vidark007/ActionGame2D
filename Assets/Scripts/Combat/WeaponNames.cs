@@ -5,6 +5,8 @@ using UnityEngine;
 public enum WeaponNames 
 {
     Staff,
+    MoonStaff,
+    FireStaff,
     Sword,
     Claw,
     Unarmed

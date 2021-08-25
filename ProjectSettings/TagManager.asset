@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - EnemyInnvocation
   - Projectile
+  - Destructible
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
-  - 
+  - Destructible
+  - Pickup
   - 
   - 
   - 
@@ -55,4 +56,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 2667415531
+    locked: 0
+  - name: UI
+    uniqueID: 2949519535
     locked: 0

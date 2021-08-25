@@ -23,9 +23,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 58272863441928294}
-  m_LocalRotation: {x: -0.008028959, y: -0.003421967, z: 0.39206293, w: 0.91989696}
-  m_LocalPosition: {x: 0.11673701, y: 0.7593421, z: -0.0030906976}
-  m_LocalScale: {x: 1, y: 0.99970376, z: 1.0001522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.093, y: 0.783, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3583997720035283226}
   m_RootOrder: 1
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3583997720035283226}
   - component: {fileID: 4805835126743576932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Staff
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,15 +54,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3583997720235331320}
-  m_LocalRotation: {x: 0, y: 0, z: -0.4455181, w: 0.8952729}
-  m_LocalPosition: {x: -0.21400002, y: -1.2179999, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 3583997721924539018}
   - {fileID: 7770226662947071581}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -52.913}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4805835126743576932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3583997721924539018}
   - component: {fileID: 3583997721924539125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WeaponImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 425297649
   m_SortingLayer: 2
-  m_SortingOrder: 14
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 83e5a5f31ff558b49989d43fb0ba1109, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

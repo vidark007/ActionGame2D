@@ -1,0 +1,276 @@
+fileFormatVersion: 2
+guid: 7647ffcae74a91643b152d4fd7a2a4af
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3183419194574925423
+    second: Enemy_HousesBuilding01_0
+  - first:
+      213: -2687087805496487512
+    second: Enemy_HousesBuilding01_1
+  - first:
+      213: -5596719057786340819
+    second: Enemy_HousesBuilding01_2
+  - first:
+      213: -7096603647375206837
+    second: Enemy_HousesBuilding01_3
+  - first:
+      213: 6933566395592000564
+    second: Enemy_HousesBuilding01_4
+  - first:
+      213: 4018320343244313951
+    second: Enemy_HousesBuilding01_6
+  - first:
+      213: -3058662009492704197
+    second: Enemy_HousesBuilding01_7
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_0
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 2076
+        width: 1448
+        height: 1361
+      alignment: 9
+      pivot: {x: 0.47599405, y: 0.02608143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6e6cc714e6cd2c20800000000000000
+      internalID: 3183419194574925423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_1
+      rect:
+        serializedVersion: 2
+        x: 2028
+        y: 2149
+        width: 549
+        height: 974
+      alignment: 9
+      pivot: {x: 0.5, y: 0.032083686}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a11911b0eb85bad0800000000000000
+      internalID: -2687087805496487512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_2
+      rect:
+        serializedVersion: 2
+        x: 2615
+        y: 2114
+        width: 401
+        height: 830
+      alignment: 9
+      pivot: {x: 0.4265027, y: 0.07389284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a7cfc6ba57452b0800000000000000
+      internalID: -5596719057786340819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_3
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 2130
+        width: 403
+        height: 461
+      alignment: 9
+      pivot: {x: 0.4904161, y: 0.0978522}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b469576059cc38d90800000000000000
+      internalID: -7096603647375206837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_4
+      rect:
+        serializedVersion: 2
+        x: 4043
+        y: 2133
+        width: 291
+        height: 481
+      alignment: 9
+      pivot: {x: 0.2876413, y: 0.20416094}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 434c8d3b6e9f83060800000000000000
+      internalID: 6933566395592000564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_6
+      rect:
+        serializedVersion: 2
+        x: 3955
+        y: 1055
+        width: 658
+        height: 895
+      alignment: 9
+      pivot: {x: 0.21825208, y: 0.15476742}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f559dccef01f3c730800000000000000
+      internalID: 4018320343244313951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_HousesBuilding01_7
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 171
+        width: 1250
+        height: 1686
+      alignment: 9
+      pivot: {x: 0.56501013, y: 0.06245665}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34743c9b137d85d0800000000000000
+      internalID: -3058662009492704197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

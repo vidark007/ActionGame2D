@@ -8,10 +8,10 @@ using ActionGame.Stats;
 public class Health : MonoBehaviour
 {
     [SerializeField]  float healthPoints;
-    [SerializeField] float maxHealth;
+    float maxHealth;
 
     [SerializeField] UnityEvent onDamage;
-    public static event Action onDieEvent;
+    [SerializeField] UnityEvent onDieEvent;
 
     bool isDead = false;
 
@@ -30,8 +30,17 @@ public class Health : MonoBehaviour
 
     private void SetHealtOnAwake()
     {
-        healthPoints = GetComponent<CharacterIdentifier>().GetCharacter().ReturnBaseHealth();
-        maxHealth = healthPoints;
+        if(GetComponent<CharacterIdentifier>() != null)
+        {
+            healthPoints = GetComponent<CharacterIdentifier>().GetCharacter().ReturnBaseHealth();
+            maxHealth = healthPoints;
+        }
+        if (GetComponent<BuildingIdentifier>() != null)
+        {
+            healthPoints = GetComponent<BuildingIdentifier>().GetBuildHealth();
+            maxHealth = healthPoints;
+        }
+
     }
 
     public void TakeDamage(float dammageAmount)

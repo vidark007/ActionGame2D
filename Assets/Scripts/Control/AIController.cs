@@ -4,17 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DropController))]
 public class AIController : MonoBehaviour
 {
     CharacterIdentifier characterIdentifier;
 
-    Vector2 startingPosition;
+    [SerializeField] Vector2 startingPosition;
+    Vector2 randomguardPosition ;
 
-    [SerializeField] float chaseDistance = 5f;
+    [SerializeField] float alertRadius = 16f;
     [SerializeField] int suspicousTime = 5;
+    [SerializeField] float chasingMaxDistance = 40f;
     WaitForSeconds suspicousTimer = new WaitForSeconds(8);
     [SerializeField] bool isAlerted = false;
-    bool enemyWasHit = false;
+    [SerializeField] bool enemyWasHit = false;
 
     GameObject player;
 
@@ -32,11 +35,11 @@ public class AIController : MonoBehaviour
     private void Awake()
     {
         characterIdentifier = GetComponent<CharacterIdentifier>();
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag(InGameTags.Player.ToString());
         mover = GetComponent<Mover>();
         fighter = GetComponent<Fighter>();
 
-        if(gameObject.tag == "Enemy")
+        if(gameObject.tag == InGameTags.Enemy.ToString())
         {
             patrolPath = transform.parent.GetComponentInChildren<PatrolPath>();
         }
@@ -53,25 +56,31 @@ public class AIController : MonoBehaviour
 
     private void OnEnable()
     {
-        characterIdentifier.onAIIsAInnvocation += SetEnemyToAggressif;
-    }
-
-    private void OnDisable()
-    {
-        characterIdentifier.onAIIsAInnvocation -= SetEnemyToAggressif;
+        Vector2 startingPositionOnEnable = transform.position;
+        randomguardPosition = startingPositionOnEnable + new Vector2(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
     }
 
     private void FixedUpdate()
     {
-        if(FriendIsAlerted())
-        {
+        if (player == null) return;
+        //vpublic static RaycastHit2D CircleCast(Vector2 origin, float radius, Vector2 direction, float distance, int layerMask);
+        RaycastHit2D hits = Physics2D.CircleCast(transform.position, 12f,Vector2.up,12f, 8);
 
-        }
         if (PlayerInView() || enemyWasHit)
         {
             if (!player.activeInHierarchy) return;
 
             EnemyBehaviourWhenTargetingPlayer();
+        }
+
+        if(enemyWasHit && GetDistanceToPlayer() > chasingMaxDistance)
+        {
+            enemyWasHit = false;
+            
+        }
+        if(GetDistanceToPlayer() < chasingMaxDistance)
+        {
+            AggrevateNearbyEnemies();
         }
         else if (!PlayerInView() && isAlerted)
         {
@@ -79,15 +88,33 @@ public class AIController : MonoBehaviour
         }
         else
         {
-            PatrolBehaviour();
+            if (gameObject.tag != InGameTags.EnemyInnvocation.ToString())
+            {
+                PatrolBehaviour();
+            }
+            else
+            {
+                mover.Move(randomguardPosition, 1f);
+            }
         }
 
         UpdatePatrolTimer();
     }
 
-    private bool FriendIsAlerted()
+    private void AggrevateNearbyEnemies()
     {
-        return false;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, alertRadius, Vector3.up);
+        foreach (RaycastHit2D hit in hits)
+        {
+            AIController ai = hit.collider.GetComponent<AIController>();
+            if (ai != null)
+            {
+                if (ai.GetIsAlerted() || ai.GetWasHit())
+                {
+                    SetEnemyToAggressif();
+                }
+            }
+        }
     }
 
     private void UpdatePatrolTimer()
@@ -121,7 +148,7 @@ public class AIController : MonoBehaviour
 
     private bool PlayerInView()
     {
-        return GetDistanceToPlayer() <= chaseDistance;
+        return GetDistanceToPlayer() <= alertRadius;
     }
 
     IEnumerator Timer_SetAlertedBehaviourOff()
@@ -179,14 +206,15 @@ public class AIController : MonoBehaviour
 
 
     private bool IsInAttackRange() => GetDistanceToPlayer() <= characterIdentifier.GetAttackRange();
-
     private float GetDistanceToPlayer() => Vector2.Distance(player.transform.position, transform.position);
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, chaseDistance);
+        Gizmos.DrawWireSphere(transform.position, alertRadius);
     }
 
+    public bool GetIsAlerted() => isAlerted;
+    public bool GetWasHit() => enemyWasHit;
 
 }

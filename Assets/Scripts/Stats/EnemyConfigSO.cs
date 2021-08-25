@@ -11,11 +11,15 @@ namespace ActionGame.Stats
         [Header("Character Typ : Able of Summoning")]
         [SerializeField] protected bool canSummon;
 
+        [Header("Character Base Stats (Default Base Attack CoolDown (Timer)")]
+        [SerializeField] protected float attackCoolDownTimer;
+
         [Header("Character Class : Melee - Distance")]
         [SerializeField] private Charactertyp  characterClass;
 
         [Header("Attack Animation")]
         [SerializeField] private bool hasAnAttackAnimation = false;
+
 
         #region SummonerCharacteristics_Only
         [HideInInspector] [SerializeField] private float summonRange;
@@ -96,6 +100,7 @@ namespace ActionGame.Stats
         }
 #endif
         #endregion
+        public float GetTimerBetweenAttack() => attackCoolDownTimer;
 
         public GameObject GetProjectilePrefab() => projectile;
     }

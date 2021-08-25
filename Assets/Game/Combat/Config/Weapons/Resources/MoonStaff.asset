@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30ced0b8680f0548bc3f384b8e6396b, type: 3}
+  m_Name: MoonStaff
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 7864616543251640643, guid: b97f9d140e8e8ed4aa0f50332b3aeaa0, type: 3}
+  projectile: {fileID: 4845326960938016277, guid: 30adff77422624c4fb88fcbd4992012c, type: 3}
+  weaponRange: 12
+  weaponDamage: 15
+  attackCoolDownTimer: 1

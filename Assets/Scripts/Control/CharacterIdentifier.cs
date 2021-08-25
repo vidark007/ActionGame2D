@@ -23,8 +23,8 @@ public class CharacterIdentifier : MonoBehaviour
     [SerializeField] EnemyConfigSO enemyConfig;
     [SerializeField] PlayerConfigSO playerConfig;
 
-    EnemyConfigSO.Charactertyp classTyp;
-    WeaponConfigSO weaponConfig = null;
+    [SerializeField] EnemyConfigSO.Charactertyp classTyp;
+    [SerializeField] WeaponConfigSO weaponConfig = null;
     [SerializeField] float characterDamage;
 
     bool isPlayer = false;
@@ -36,9 +36,6 @@ public class CharacterIdentifier : MonoBehaviour
     [SerializeField] GameObject innvocationPrefab;
 
     
-    //Mon Invocation => GetAggressif
-    public event Action onAIIsAInnvocation;
-
     private void Awake()
     {
         //preventing Error => MagicString in Fighter
@@ -110,7 +107,7 @@ public class CharacterIdentifier : MonoBehaviour
 
     public bool IsWeaponCarrierCharacter()
     {
-        return gameObject.tag == "Player" || gameObject.tag == "NPC";
+        return gameObject.tag == InGameTags.Player.ToString() || gameObject.tag == InGameTags.NPC.ToString();
     }
 
     private void SetDamage()
@@ -148,7 +145,7 @@ public class CharacterIdentifier : MonoBehaviour
 
     public bool IsASummoner() => isSummmoner;
 
-    public float GetTimeBetweenAttack() => character.GetTimerBetweenAttack();
+    public float GetEnemyTimerBetweenAttack() => enemyConfig.GetTimerBetweenAttack();
 
     public float GetAttackRange() => isPlayer ? weaponConfig.GetWeaponRange() : character.GetRangeofBaseAttack();
 
@@ -158,5 +155,7 @@ public class CharacterIdentifier : MonoBehaviour
     public GameObject GetEnemiesProjectilePrefab() => enemyConfig.GetProjectilePrefab();
 
     public bool HasAnAttackAnimation() => enemyConfig.HasAnAttackAnimation();
+
+    public float GetWeapon_BetweenAttackTime() => weaponConfig.GetTimerBetweenAttack();
 
 }

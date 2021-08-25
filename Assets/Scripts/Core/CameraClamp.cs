@@ -15,7 +15,7 @@ public class CameraClamp : MonoBehaviour
 
     private void Awake()
     {
-        playerPos = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        playerPos = GameObject.FindWithTag(InGameTags.Player.ToString()).GetComponent<Transform>();
     }
 
     private void Update()

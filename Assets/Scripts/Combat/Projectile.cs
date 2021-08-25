@@ -20,9 +20,9 @@ public class Projectile : MonoBehaviour
     {
         if (!isPlayerComponent)
         {
-            if(GameObject.FindWithTag("Player") != null)
+            if(GameObject.FindWithTag(InGameTags.Player.ToString()) != null)
             {
-                target = GameObject.FindWithTag("Player").transform.position;
+                target = GameObject.FindWithTag(InGameTags.Player.ToString()).transform.position;
             }
             else
             {
@@ -35,6 +35,8 @@ public class Projectile : MonoBehaviour
     {
         isPlayerComponent = trueFalse;
     }
+
+    public bool IsAPlayerProjectile() => isPlayerComponent;
 
     public void SetProjectilValues(float damage, float range, Transform sourcePosition)
     {
@@ -94,7 +96,7 @@ public class Projectile : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isPlayerComponent) {
-            if (collision.tag == "Enemy" || collision.tag == "EnemyInnvocation" )
+            if (collision.tag == InGameTags.Enemy.ToString() || collision.tag == InGameTags.EnemyInnvocation.ToString() || collision.tag ==  InGameTags.Destructible.ToString())
             {
                 collision.GetComponent<Health>().TakeDamage(projectileDamage);
                 DestroyProjectile();
@@ -102,7 +104,7 @@ public class Projectile : MonoBehaviour
         }
         else if (!isPlayerComponent)
         {
-            if (collision.tag == "Player" || collision.tag == "NPC")
+            if (collision.tag == InGameTags.Player.ToString() || collision.tag == InGameTags.NPC.ToString())
             {
                 collision.GetComponent<Health>().TakeDamage(projectileDamage);
                 DestroyProjectile();

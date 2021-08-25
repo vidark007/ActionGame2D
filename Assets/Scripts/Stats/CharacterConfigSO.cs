@@ -9,9 +9,6 @@ namespace ActionGame.Stats
         [SerializeField] protected int baseRangeCapacity;
         [SerializeField] protected int baseDamageAmount;
 
-        [Header("Character Base Stats (Default Base Attack CoolDown (Timer)")]
-        [SerializeField] protected float attackCoolDownTimer;
-
         public float GetDamageCharacterAmount()
         {
             return baseDamageAmount;
@@ -23,9 +20,6 @@ namespace ActionGame.Stats
         }
 
         public float GetRangeofBaseAttack() => baseRangeCapacity;
-
-        public float GetTimerBetweenAttack() => attackCoolDownTimer;
-
 
     }
 

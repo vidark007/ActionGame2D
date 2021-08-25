@@ -7,7 +7,7 @@ public class Fighter : MonoBehaviour
 {
     CharacterIdentifier characterIdentifier;
 
-    float timerBetweenBaseAttack;
+    [SerializeField] float timerBetweenAttack;
     float timeSinceLastAttack = 0f;
     float timeSinceLastSummon = 0f;
     [SerializeField] float meleeAttackSpeed =8f;
@@ -18,19 +18,26 @@ public class Fighter : MonoBehaviour
 
     Animator animator;
 
-
     Health target;
     private void Start()
     {
         characterIdentifier = GetComponent<CharacterIdentifier>();
-        timerBetweenBaseAttack = characterIdentifier.GetTimeBetweenAttack();
+      
         animator = GetComponent<Animator>();
 
         //for enemy we take component "Health" from Player
+        //set time Between attack
         if (!characterIdentifier.IsPlayer())
         {
-            target = GameObject.FindWithTag("Player").GetComponent<Health>();
+            if(GameObject.FindWithTag(InGameTags.Player.ToString()) == null) return;
 
+            timerBetweenAttack = characterIdentifier.GetEnemyTimerBetweenAttack();
+
+            target = GameObject.FindWithTag(InGameTags.Player.ToString()).GetComponent<Health>();
+        }
+        else if (characterIdentifier.IsPlayer())
+        {
+            timerBetweenAttack = characterIdentifier.GetWeapon_BetweenAttackTime();
         }
 
         if (characterIdentifier.IsCharacterDistanceClass() || characterIdentifier.IsPlayer())
@@ -49,16 +56,12 @@ public class Fighter : MonoBehaviour
 
             }
         }
-
-
     }
-
 
     private void FindAndSetChildrenComponent()
     {
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
-
             if (child.name == "ProjectileSpawnPosition")
             {
                 projectileSpawnPosition = child.GetComponent<Transform>();
@@ -86,7 +89,7 @@ public class Fighter : MonoBehaviour
 
                 projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), characterIdentifier.GetAttackRange(), projectileSpawnPosition);
 
-                timeSinceLastAttack = Time.time + timerBetweenBaseAttack;  
+                timeSinceLastAttack = Time.time + timerBetweenAttack;  
             }
         }
         else if (characterIdentifier.IsCharacterMeleeClass())
@@ -94,7 +97,7 @@ public class Fighter : MonoBehaviour
             if (BaseAttackIsReady())
             {
                 StartCoroutine(MeleeAttack());
-                timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
+                timeSinceLastAttack = Time.time + timerBetweenAttack;
             }
         }
         else if (characterIdentifier.IsCharacterDistanceClass())
@@ -105,7 +108,7 @@ public class Fighter : MonoBehaviour
                 {
                     RangeAttack();
 
-                    timeSinceLastAttack = Time.time + timerBetweenBaseAttack;
+                    timeSinceLastAttack = Time.time + timerBetweenAttack;
                 }
 
             }
