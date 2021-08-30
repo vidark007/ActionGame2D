@@ -11,6 +11,8 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected private Transform attackPoint;
     [SerializeField] protected WeaponNames weaponName;
 
+    [SerializeField] protected GameObject pickupPrefab;
+
     protected GameObject pooler;
     
     protected virtual void Awake()
@@ -39,6 +41,7 @@ public abstract class Weapon : MonoBehaviour
 
         return degrees;
     }
+    public GameObject WeaponPickupPrefab() => pickupPrefab;
 
     public abstract WeaponConfigSO GetEquippedWeapon();
 

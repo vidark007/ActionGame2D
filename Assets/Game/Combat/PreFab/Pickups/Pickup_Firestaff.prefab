@@ -407,9 +407,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3557716045106477402}
-  - component: {fileID: 3557716045106477403}
   - component: {fileID: 3557716045106477401}
   - component: {fileID: 3557716045106477406}
+  - component: {fileID: 8509441223229843367}
   m_Layer: 9
   m_Name: Pickup_Firestaff
   m_TagString: Untagged
@@ -434,21 +434,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3557716045106477403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3557716045106477407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba0ad6c3860059d428e3e78b39720de4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupPrefab: {fileID: 8334316664558707635, guid: b80e7240066500947ae157937ed36b88, type: 3}
-  UI: {fileID: 0}
-  startingScale: {x: 0, y: 0, z: 0}
 --- !u!61 &3557716045106477401
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -490,6 +475,20 @@ MonoBehaviour:
   infoDamageText: {fileID: 0}
   infoDistanceText: {fileID: 0}
   infoWeaponCoolDownText: {fileID: 0}
+  weaponConfig: {fileID: 0}
+--- !u!114 &8509441223229843367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557716045106477407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155674d4bace2a442a398e761d0a2010, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 8334316664558707635, guid: b80e7240066500947ae157937ed36b88, type: 3}
   weaponConfig: {fileID: 0}
 --- !u!1 &3557716045267756478
 GameObject:

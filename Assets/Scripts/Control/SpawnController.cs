@@ -10,14 +10,10 @@ public class SpawnController : MonoBehaviour
 
     [Header("Enemy List - Category of Enemies to spawn from building")]
     [SerializeField] List<GameObject> enemies;
-    [Header("Wave number in ONE hit")]
-    [SerializeField] int enemyWaveNumber = 2;
-    [SerializeField] float timebetweenSpawn = 3f;
-
     
     [SerializeField]Transform building;
 
-    [SerializeField] int currentWave = 1;
+    [SerializeField] int currentWave = 0;
     [SerializeField] int maxWave = 5;
 
     [SerializeField] float timeSinceLastWaveCounter = 5f;
@@ -49,6 +45,7 @@ public class SpawnController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         EnemyBehavior(collision);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,14 +53,12 @@ public class SpawnController : MonoBehaviour
         EnemyBehavior(collision);
     }
 
-
     private void EnemyBehavior(Collider2D collision)
     {
         if (collision.tag == InGameTags.Enemy.ToString())
         {
             if (collision.GetComponent<AIController>().GetIsAlerted() || collision.GetComponent<AIController>().GetWasHit())
             {
-                Debug.Log("Enemey is alerted");
                 StartSpwaningEnemies();
             }
         }
@@ -73,46 +68,32 @@ public class SpawnController : MonoBehaviour
     {
         if (currentWave <= maxWave && Time.time >= timeSinceLastWave)
         {
-            StartCoroutine(StartNextWave());
+            //StartCoroutine(StartNextWave());
+            SpawnWave();
             currentWave++;
-
-            timeSinceLastWave = Time.time + timeSinceLastWave;
+            timeSinceLastWave = Time.time + timeSinceLastWaveCounter;
         }
     }
 
-    public IEnumerator StartNextWave()
-    {
-        yield return new WaitForSeconds(timeSinceLastWave);
-        StartCoroutine(SpawnWave());
-    }
-
-    IEnumerator SpawnWave()
+    private void SpawnWave()
     {
 
-        for (int i = 0; i < enemyWaveNumber; i++)
+        Transform enemy = enemies[UnityEngine.Random.Range(0, enemies.Count)].transform;
+
+        if (enemy.GetComponent<DropController>() != null)
         {
-            if (player == null) yield break;
-
-            Transform enemy = enemies[UnityEngine.Random.Range(0, enemies.Count)].transform;
-
-            if(enemy.GetComponent<DropController>() != null)
-            {
-                enemy.GetComponent<DropController>().enabled= false;
-            }
-
-            if(enemy.tag != InGameTags.EnemyInnvocation.ToString())
-            {
-                SetEnemyTagToInnvocationTag(enemy);
-            }
-
-            enemy = Instantiate(enemy, transform.position, transform.rotation);
-
-            enemy.transform.parent = this.transform;
-
-            yield return new WaitForSeconds(timebetweenSpawn);
-
+            enemy.GetComponent<DropController>().enabled = false;
         }
-        
+
+        if (enemy.tag != InGameTags.EnemyInnvocation.ToString())
+        {
+            SetEnemyTagToInnvocationTag(enemy);
+        }
+
+        enemy = Instantiate(enemy, transform.position, transform.rotation);
+
+        enemy.transform.parent = this.transform;
+
     }
 
     //Set enemy to aggressiv

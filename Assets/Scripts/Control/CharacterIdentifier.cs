@@ -45,11 +45,23 @@ public class CharacterIdentifier : MonoBehaviour
 
         if (IsWeaponCarrierCharacter())
         {
-            AddWeaponReference();
+            AddWeaponReferenceAndDamage(null, GetComponentInChildren<DistanceWeapon>().GetEquippedWeapon());
+        }
+        else
+        {
+            AddWeaponReferenceAndDamage(null, null);
         }
 
-        SetDamage();
+    }
 
+    private void Start()
+    {
+        PickupWeapon.onWeaponPickup += AddWeaponReferenceAndDamage;
+    }
+
+    private void OnDisable()
+    {
+        PickupWeapon.onWeaponPickup -= AddWeaponReferenceAndDamage;
     }
 
     private void SetThisGameobjectName()
@@ -79,20 +91,13 @@ public class CharacterIdentifier : MonoBehaviour
         yield return null;
     } 
 
-    private void AddWeaponReference()
+    public void AddWeaponReferenceAndDamage(GameObject weaponpreFab, WeaponConfigSO weaponConfig)
     {
-        if (GetComponentInChildren<DistanceWeapon>())
+        if (IsWeaponCarrierCharacter())
         {
-            weaponConfig = GetComponentInChildren<DistanceWeapon>().GetEquippedWeapon();
+            this.weaponConfig = weaponConfig;
         }
-        else if (!GetComponentInChildren<DistanceWeapon>())
-        {
-            weaponConfig = GetComponentInChildren<MeleeWeapon>().GetEquippedWeapon();
-        }
-        else
-        {
-            Debug.Log("No Weapon found on PlayableCharacter");
-        }
+        CalculCharacterGlobalDamage();
     }
 
     public CharacterConfigSO GetCharacter()
@@ -110,7 +115,7 @@ public class CharacterIdentifier : MonoBehaviour
         return gameObject.tag == InGameTags.Player.ToString() || gameObject.tag == InGameTags.NPC.ToString();
     }
 
-    private void SetDamage()
+    private void CalculCharacterGlobalDamage()
     {
         if (IsWeaponCarrierCharacter())
         {

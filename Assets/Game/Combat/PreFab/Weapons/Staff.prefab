@@ -77,6 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 0}
   weaponName: 0
+  pickupPrefab: {fileID: 7785303824196055729, guid: 06b6b6832c960804d86000564917aa71, type: 3}
   weapon: {fileID: 11400000, guid: c406ba5b8f67cb0489de3d7865124112, type: 2}
 --- !u!1 &3583997721924539019
 GameObject:

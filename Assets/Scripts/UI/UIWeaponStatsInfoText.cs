@@ -15,7 +15,7 @@ public class UIWeaponStatsInfoText : MonoBehaviour
 
     private void Awake()
     {
-        weaponConfig = Resources.Load<WeaponConfigSO>(GetComponent<Pickup>().GetPickupWeaponName());
+        weaponConfig = Resources.Load<WeaponConfigSO>(GetComponent<PickupWeapon>().GetPickupWeaponName());
 
         Array.ForEach(transform.GetComponentsInChildren<Transform>(true), element =>
         {
