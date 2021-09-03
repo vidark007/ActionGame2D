@@ -6,10 +6,10 @@ public class Projectile : MonoBehaviour
     private float distanceOfProjectile;
 
     public GameObject hitEffect = null;
-    private float projectileDamage = 0f;
+    [SerializeField] private float projectileDamage = 0f;
 
-    Vector3 sourcePosition;
-    float rangeMax;
+    [SerializeField] Vector3 sourcePosition;
+    [SerializeField] float rangeMax;
 
     [SerializeField] bool isPlayerComponent = false;
     Vector3 target;

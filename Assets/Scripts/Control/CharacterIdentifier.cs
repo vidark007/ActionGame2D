@@ -44,8 +44,9 @@ public class CharacterIdentifier : MonoBehaviour
         //preventing Error => MagicString in Fighter
         SetThisGameobjectName();
 
-        StartCoroutine(SetCharacterValuesOnAwake());
-
+        //StartCoroutine(SetCharacterValuesOnAwake());
+        StartCoroutine(ExecutingOrder());
+/*
         if (IsWeaponCarrierCharacter())
         {
             AddWeaponReferenceAndDamage(null, GetComponentInChildren<DistanceWeapon>().GetEquippedWeapon());
@@ -53,7 +54,7 @@ public class CharacterIdentifier : MonoBehaviour
         else
         {
             AddWeaponReferenceAndDamage(null, null);
-        }
+        }*/
 
     }
 
@@ -65,6 +66,22 @@ public class CharacterIdentifier : MonoBehaviour
     private void OnDisable()
     {
         PickupWeapon.onWeaponPickup -= AddWeaponReferenceAndDamage;
+    }
+
+    IEnumerator ExecutingOrder()
+    {
+        yield return StartCoroutine(SetCharacterValuesOnAwake());
+
+
+        if (IsWeaponCarrierCharacter())
+        {
+            AddWeaponReferenceAndDamage(null, GetComponentInChildren<DistanceWeapon>().GetEquippedWeapon());
+        }
+        else
+        {
+            AddWeaponReferenceAndDamage(null, null);
+        }
+
     }
 
     private void SetThisGameobjectName()
@@ -124,6 +141,13 @@ public class CharacterIdentifier : MonoBehaviour
         {
             if (weaponConfig != null)
             {
+                Pooler poolerComponent = transform.parent.GetComponentInChildren<Pooler>();
+
+                if (!poolerComponent.IsPoolerEmpty())
+                {
+                    poolerComponent.DeleteAllPrefabsInPool();
+                }
+
                 characterDamage = weaponConfig.GetWeaponDamage();
                 attackRange = weaponConfig.GetWeaponRange();
 
@@ -131,10 +155,7 @@ public class CharacterIdentifier : MonoBehaviour
                 GetComponent<Fighter>().SetTimerBetweenAttack(weaponConfig.GetTimerBetweenAttack());
 
                 //Projectile
-                Debug.Log(weaponConfig.GetProjectile());
-
-                test = transform.parent.GetComponentInChildren<Pooler>();
-                test.InstaniatePrefabToPool(weaponConfig.GetProjectile());
+                poolerComponent.InstaniatePrefabToPool(weaponConfig.GetProjectile());
 
             }
         }

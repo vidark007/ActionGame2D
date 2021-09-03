@@ -307,10 +307,7 @@ MonoBehaviour:
   weaponConfig: {fileID: 0}
   characterDamage: 0
   attackRange: 0
-  isSummmoner: 0
-  summonRange: 0
-  summonCoolDownTimer: 0
-  innvocationPrefab: {fileID: 0}
+  test: {fileID: 0}
 --- !u!114 &2117245061428696423
 MonoBehaviour:
   m_ObjectHideFlags: 0

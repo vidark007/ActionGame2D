@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     Mover mover;
     Fighter fighter;
 
+    bool mouseIsOverUI;
+
     private void Awake()
     {
         mover = GetComponent<Mover>();
@@ -21,9 +23,14 @@ public class PlayerController : MonoBehaviour
         Vector2 moveAmout = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         mover.Move(moveAmout, 1f);
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !mouseIsOverUI)
         {
            fighter.BasicAttack();
         }
+    }
+
+    public void MouseIsOverUI(bool statement)
+    {
+        mouseIsOverUI = statement;
     }
 }

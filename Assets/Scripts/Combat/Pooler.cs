@@ -10,7 +10,7 @@ public class Pooler : MonoBehaviour
     [SerializeField] protected int amount = 10;
     [Header("Pooler Typ :")]
     [SerializeField] private PoolerTyp poolerTyp;
-    CharacterIdentifier characterIdentifier;
+    [SerializeField] CharacterIdentifier characterIdentifier;
     public static Pooler Instance { get; private set;}
 
     public enum PoolerTyp
@@ -22,6 +22,7 @@ public class Pooler : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        FindCharacterIdentifierInMyHierarchy();
     }
 
 
@@ -30,7 +31,7 @@ public class Pooler : MonoBehaviour
     {
         objectPoolersList = new List<GameObject>();
 
-        FindCharacterIdentifierInMyHierarchy();
+      //  FindCharacterIdentifierInMyHierarchy();
 
         SetMobOrProjectileInPoolForENEMYCharacter();
     }
@@ -97,9 +98,15 @@ public class Pooler : MonoBehaviour
             if(poolerTyp == PoolerTyp.ProjectilePooler)
             {
                 Projectile projectile = objectToAddInPool.GetComponent<Projectile>();
-                
-                projectile.SetIsPlayerComponent(
-                    characterIdentifier.IsPlayer());
+
+                /*                if (characterIdentifier.IsPlayer())
+                                {
+                                    projectile.SetIsPlayerComponent(characterIdentifier.IsPlayer());
+
+                                }*/
+
+                bool isPlayer = characterIdentifier.IsPlayer();
+                projectile.SetIsPlayerComponent(isPlayer);
             }
         }
         return objectPoolersList;
@@ -132,5 +139,17 @@ public class Pooler : MonoBehaviour
 
         return newObjectToAddInPool;
     }
+
+    public void DeleteAllPrefabsInPool()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject.Destroy(transform.GetChild(i).gameObject);
+        }
+
+        objectPoolersList = new List<GameObject>();
+    }
+
+    public bool IsPoolerEmpty() => transform.childCount == 0 ? true : false;
 
 }

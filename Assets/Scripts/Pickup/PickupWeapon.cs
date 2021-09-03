@@ -19,10 +19,13 @@ public class PickupWeapon : MonoBehaviour
 
     WeaponConfigSO weaponConfig = null;
 
+    PlayerController playerController;
+
     private void Start()
     {
         startingScale = transform.localScale;
         staringPosition = transform.position;
+        playerController = GameObject.FindWithTag(InGameTags.Player.ToString()).GetComponent<PlayerController>();
 
         weaponConfig = weaponPrefab.GetComponent<DistanceWeapon>().GetEquippedWeapon();
          
@@ -43,6 +46,8 @@ public class PickupWeapon : MonoBehaviour
 
     private void OnMouseOver()
     {
+        playerController.MouseIsOverUI(true);
+
         playersEquipedWeapon = GameObject.Find("WeaponHolder").transform.GetChild(0).gameObject.GetComponent<DistanceWeapon>().WeaponPickupPrefab();
 
         transform.localScale = startingScale + new Vector3(0.2f, 0.2f, 0);
@@ -53,6 +58,8 @@ public class PickupWeapon : MonoBehaviour
     {
         transform.localScale = startingScale;
         UI.SetActive(false);
+
+        playerController.MouseIsOverUI(false);
     }
 
     private void OnMouseDown()

@@ -10,7 +10,7 @@ namespace ActionGame.Control
         private void OnDrawGizmos()
         {
            for(int i =0; i < transform.childCount; i++)
-            {
+           {
                 Gizmos.color = Color.green;
 
                 Gizmos.DrawSphere(GetWaypoint(i), wayPointGizmosRadius);
