@@ -1,15 +1,16 @@
+using ActionGame.Combat;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Pooler : MonoBehaviour
 {
-    GameObject objectToPoolPrefab;
+    [SerializeField] GameObject objectToPoolPrefab;
     [SerializeField] List<GameObject> objectPoolersList;
     [SerializeField] protected int amount = 10;
     [Header("Pooler Typ :")]
     [SerializeField] private PoolerTyp poolerTyp;
-    [SerializeField] CharacterIdentifier characterIdentifier;
+    CharacterIdentifier characterIdentifier;
     public static Pooler Instance { get; private set;}
 
     public enum PoolerTyp
@@ -18,50 +19,45 @@ public class Pooler : MonoBehaviour
         MobPooler
     }
 
-
     private void Awake()
     {
         Instance = this;
     }
 
+
+
     private void Start()
     {
-        //projectilePool = new List<GameObject>();
-        SetPoolerGameobject();
+        objectPoolersList = new List<GameObject>();
 
-        if (objectToPoolPrefab != null)
-        {
-            objectPoolersList = GenerateGameObjectPool(amount);
-        }
-    }
-
-    private void SetPoolerGameobject()
-    {
         FindCharacterIdentifierInMyHierarchy();
 
+        SetMobOrProjectileInPoolForENEMYCharacter();
+    }
+
+    private void SetMobOrProjectileInPoolForENEMYCharacter()
+    {
+        
         if (poolerTyp == PoolerTyp.ProjectilePooler)
         {
             if (characterIdentifier != null)
             {
-                if (characterIdentifier.IsPlayer())
+/*                if (characterIdentifier.IsPlayer())
                 {
                     InstaniatePrefabToPool(characterIdentifier.GetCurrentWeapon().GetProjectile());
-                }
-                else
+                }*/
+                if (!characterIdentifier.IsPlayer())
                 {
                     if (characterIdentifier.IsCharacterDistanceClass())
                     {
                         GameObject projectile = characterIdentifier.GetEnemiesProjectilePrefab();
                         InstaniatePrefabToPool(projectile);
                     }
-
                 }
             }
         }
-
         else if (poolerTyp == PoolerTyp.MobPooler)
         {
-
             if (characterIdentifier.IsASummoner())
             {
                 GameObject innvocation = characterIdentifier.GetSummoner(out float range, out float coolDown);
@@ -86,6 +82,8 @@ public class Pooler : MonoBehaviour
     public void InstaniatePrefabToPool(GameObject prefab)
     {
         objectToPoolPrefab = prefab;
+
+        objectPoolersList = GenerateGameObjectPool(amount);
     }
 
     List<GameObject> GenerateGameObjectPool(int amount)
@@ -134,6 +132,5 @@ public class Pooler : MonoBehaviour
 
         return newObjectToAddInPool;
     }
-
 
 }

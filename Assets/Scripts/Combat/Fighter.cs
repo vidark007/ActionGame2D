@@ -31,14 +31,14 @@ public class Fighter : MonoBehaviour
         {
             if(GameObject.FindWithTag(InGameTags.Player.ToString()) == null) return;
 
-            timerBetweenAttack = characterIdentifier.GetEnemyTimerBetweenAttack();
+            //SetTimerBetweenAttack(characterIdentifier.GetEnemyTimerBetweenAttack());
 
             target = GameObject.FindWithTag(InGameTags.Player.ToString()).GetComponent<Health>();
         }
-        else if (characterIdentifier.IsPlayer())
+/*        else if (characterIdentifier.IsPlayer())
         {
             timerBetweenAttack = characterIdentifier.GetWeapon_BetweenAttackTime();
-        }
+        }*/
 
         if (characterIdentifier.IsCharacterDistanceClass() || characterIdentifier.IsPlayer())
         {
@@ -56,6 +56,11 @@ public class Fighter : MonoBehaviour
 
             }
         }
+    }
+
+    public void SetTimerBetweenAttack(float time)
+    {
+        timerBetweenAttack = time;
     }
 
     private void FindAndSetChildrenComponent()

@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     Vector3 sourcePosition;
     float rangeMax;
 
-    bool isPlayerComponent = false;
+    [SerializeField] bool isPlayerComponent = false;
     Vector3 target;
 
 

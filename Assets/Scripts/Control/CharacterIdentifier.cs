@@ -25,15 +25,18 @@ public class CharacterIdentifier : MonoBehaviour
 
     [SerializeField] EnemyConfigSO.Charactertyp classTyp;
     [SerializeField] WeaponConfigSO weaponConfig = null;
-    [SerializeField] float characterDamage;
+
 
     bool isPlayer = false;
-    [SerializeField]  float attackRange = 0f;
 
+    [SerializeField] float characterDamage;
+    [SerializeField] float attackRange = 0f;
 
-    [SerializeField] bool isSummmoner = false;
-    [SerializeField] float summonRange, summonCoolDownTimer;
-    [SerializeField] GameObject innvocationPrefab;
+    bool isSummmoner = false;
+    float summonRange, summonCoolDownTimer;
+    GameObject innvocationPrefab;
+    
+    [SerializeField] Pooler test;
 
     
     private void Awake()
@@ -97,7 +100,7 @@ public class CharacterIdentifier : MonoBehaviour
         {
             this.weaponConfig = weaponConfig;
         }
-        CalculCharacterGlobalDamage();
+        CalculateCharacterDamageBehavior();
     }
 
     public CharacterConfigSO GetCharacter()
@@ -115,20 +118,33 @@ public class CharacterIdentifier : MonoBehaviour
         return gameObject.tag == InGameTags.Player.ToString() || gameObject.tag == InGameTags.NPC.ToString();
     }
 
-    private void CalculCharacterGlobalDamage()
+    private void CalculateCharacterDamageBehavior()
     {
         if (IsWeaponCarrierCharacter())
         {
             if (weaponConfig != null)
             {
-                characterDamage += weaponConfig.GetWeaponDamage();
-                attackRange += weaponConfig.GetWeaponRange();
+                characterDamage = weaponConfig.GetWeaponDamage();
+                attackRange = weaponConfig.GetWeaponRange();
+
+                //AttackTimer
+                GetComponent<Fighter>().SetTimerBetweenAttack(weaponConfig.GetTimerBetweenAttack());
+
+                //Projectile
+                Debug.Log(weaponConfig.GetProjectile());
+
+                test = transform.parent.GetComponentInChildren<Pooler>();
+                test.InstaniatePrefabToPool(weaponConfig.GetProjectile());
+
             }
         }
-        if (character != null)
+        if (character != null && !IsWeaponCarrierCharacter())
         {
-            characterDamage += character.GetDamageCharacterAmount();
-            attackRange += character.GetRangeofBaseAttack();
+            characterDamage = character.GetDamageCharacterAmount();
+            attackRange = character.GetRangeofBaseAttack();
+           
+            GetComponent<Fighter>().SetTimerBetweenAttack(enemyConfig.GetTimerBetweenAttack());
+
         }
     }
 
