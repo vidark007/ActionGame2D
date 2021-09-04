@@ -35,8 +35,6 @@ public class CharacterIdentifier : MonoBehaviour
     bool isSummmoner = false;
     float summonRange, summonCoolDownTimer;
     GameObject innvocationPrefab;
-    
-    [SerializeField] Pooler test;
 
     
     private void Awake()
@@ -146,6 +144,8 @@ public class CharacterIdentifier : MonoBehaviour
                 if (!poolerComponent.IsPoolerEmpty())
                 {
                     poolerComponent.DeleteAllPrefabsInPool();
+
+
                 }
 
                 characterDamage = weaponConfig.GetWeaponDamage();

@@ -11,9 +11,9 @@ public class Fighter : MonoBehaviour
     float timeSinceLastAttack = 0f;
     float timeSinceLastSummon = 0f;
     [SerializeField] float meleeAttackSpeed =8f;
-    Transform projectileSpawnPosition;
-    
-    Pooler projectilePooler;
+    [SerializeField] Transform projectileSpawnPosition;
+
+    [SerializeField] Pooler projectilePooler;
     Pooler mobPooler;
 
     Animator animator;
@@ -63,7 +63,7 @@ public class Fighter : MonoBehaviour
         timerBetweenAttack = time;
     }
 
-    private void FindAndSetChildrenComponent()
+    public void FindAndSetChildrenComponent()
     {
         foreach (Transform child in transform.GetComponentsInChildren<Transform>())
         {
@@ -92,7 +92,10 @@ public class Fighter : MonoBehaviour
 
                 GameObject projectile = projectilePooler.SpawnFromPool();
 
-                projectile.GetComponent<Projectile>().SetProjectilValues(characterIdentifier.GetCharacterDamage(), characterIdentifier.GetAttackRange(), projectileSpawnPosition);
+                projectile.GetComponent<Projectile>().SetProjectilValues(
+                    characterIdentifier.GetCharacterDamage(), 
+                    characterIdentifier.GetAttackRange(), 
+                    projectileSpawnPosition);
 
                 timeSinceLastAttack = Time.time + timerBetweenAttack;  
             }

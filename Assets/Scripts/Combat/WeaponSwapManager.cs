@@ -6,19 +6,35 @@ using UnityEngine;
 
 public class WeaponSwapManager : MonoBehaviour
 {
+    Fighter playerFighterComponent;
     private void Start()
     {
-        PickupWeapon.onWeaponPickup += SwapWeapon;
+        playerFighterComponent = GameObject.FindWithTag(InGameTags.Player.ToString()).GetComponent<Fighter>();
+        PickupWeapon.onWeaponPickup += InstiateNewWeapon;
     }
 
     private void OnDisable()
     {
-        PickupWeapon.onWeaponPickup -= SwapWeapon;
+        PickupWeapon.onWeaponPickup -= InstiateNewWeapon;
     }
 
-    private void SwapWeapon(GameObject weaponToEquip, WeaponConfigSO weaponConfig)
+    private void InstiateNewWeapon(GameObject weaponToEquip, WeaponConfigSO weaponConfig)
     {
         Instantiate(weaponToEquip, transform.GetChild(0).position, transform.GetChild(0).rotation).transform.parent = gameObject.transform;
+
+        StartCoroutine(WeaponSwapExecutionOrder());
+    }
+
+    IEnumerator WeaponSwapExecutionOrder()
+    {
+        yield return DestroyOldWeapon();
+
+        playerFighterComponent.FindAndSetChildrenComponent();
+    }
+
+    IEnumerator DestroyOldWeapon()
+    {
         GameObject.Destroy(transform.GetChild(0).gameObject);
+        yield return null;
     }
 }
