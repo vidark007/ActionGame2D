@@ -477,7 +477,7 @@ MonoBehaviour:
   dropPercent:
   - 10
   - 20
-  - 50
+  - 90
 --- !u!1 &2117245060412288475
 GameObject:
   m_ObjectHideFlags: 0

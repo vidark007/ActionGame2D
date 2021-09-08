@@ -5799,7 +5799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 3583997720235331320, guid: a05e43b938269d74aa960527be44999c, type: 3}
-  playersEquipedWeapon: {fileID: 0}
+  destroyAfterAmountOfTime: 20
 --- !u!1 &7785303824273910291
 GameObject:
   m_ObjectHideFlags: 0

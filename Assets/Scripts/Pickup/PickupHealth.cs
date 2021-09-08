@@ -24,7 +24,7 @@ public class PickupHealth : MonoBehaviour
         
     }
 
-    private void OnEnable()
+    private void Start()
     {
         DestroyGameObjectAfterAmountOfTime(destroyAfterAmountOfTime);
     }

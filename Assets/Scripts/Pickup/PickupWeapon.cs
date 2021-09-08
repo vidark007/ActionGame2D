@@ -34,11 +34,9 @@ public class PickupWeapon : MonoBehaviour
         weaponConfig = weaponPrefab.GetComponent<DistanceWeapon>().GetEquippedWeapon();
          
         GetUIcomponentInChild();
-    }
 
-    private void OnEnable()
-    {
         DestroyGameObjectAfterAmountOfTime(destroyAfterAmountOfTime);
+
     }
 
     private void GetUIcomponentInChild()

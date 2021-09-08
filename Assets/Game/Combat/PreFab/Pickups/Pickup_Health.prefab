@@ -4902,6 +4902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healingAmount: 5
+  destroyAfterAmountOfTime: 8
 --- !u!61 &5522494336233196194
 BoxCollider2D:
   m_ObjectHideFlags: 0
