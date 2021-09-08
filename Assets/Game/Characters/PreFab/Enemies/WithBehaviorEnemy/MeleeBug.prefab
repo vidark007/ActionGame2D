@@ -307,7 +307,6 @@ MonoBehaviour:
   weaponConfig: {fileID: 0}
   characterDamage: 0
   attackRange: 0
-  test: {fileID: 0}
 --- !u!114 &2117245061428696423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerBetweenAttack: 0
   meleeAttackSpeed: 8
+  projectileSpawnPosition: {fileID: 0}
+  projectilePooler: {fileID: 0}
 --- !u!114 &8436887453303132164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 0
+  maxHealth: 0
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -471,9 +473,11 @@ MonoBehaviour:
   item:
   - {fileID: 3557716045106477407, guid: eb1050ecd24254241bab485b4c0f0d46, type: 3}
   - {fileID: 7785303824196055729, guid: 06b6b6832c960804d86000564917aa71, type: 3}
+  - {fileID: 5522494336233196193, guid: dac085e7cb9445349a9b6954216b67f2, type: 3}
   dropPercent:
-  - 40
-  - 100
+  - 10
+  - 20
+  - 50
 --- !u!1 &2117245060412288475
 GameObject:
   m_ObjectHideFlags: 0

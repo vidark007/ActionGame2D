@@ -8,7 +8,7 @@ using ActionGame.Stats;
 public class Health : MonoBehaviour
 {
     [SerializeField]  float healthPoints;
-    float maxHealth;
+    [SerializeField] float maxHealth;
 
     [SerializeField] UnityEvent onDamage;
     [SerializeField] UnityEvent onDieEvent;
@@ -46,7 +46,8 @@ public class Health : MonoBehaviour
     public void TakeDamage(float dammageAmount)
     {
         healthPoints -= dammageAmount;
-        healthPoints = Mathf.Clamp(healthPoints, 0, maxHealth);    
+
+        LifeLimiter();
 
         if (healthPoints == 0)
         {
@@ -59,14 +60,26 @@ public class Health : MonoBehaviour
 
     }
 
+    private void LifeLimiter()
+    {
+        healthPoints = Mathf.Clamp(healthPoints, 0, maxHealth);
+    }
+
     public void Heal(float healthToRestore)
     {
-        
+        healthPoints += healthToRestore;
+
+        LifeLimiter();
     }
 
     public float GetHealthPoint()
     {
         return healthPoints;
+    }
+
+    public bool IsPlayerHealthFull()
+    {
+        return healthPoints == maxHealth; 
     }
 
     public bool IsDead()

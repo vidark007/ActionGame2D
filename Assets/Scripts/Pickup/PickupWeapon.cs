@@ -15,11 +15,15 @@ public class PickupWeapon : MonoBehaviour
 
     public static event Action<GameObject, WeaponConfigSO> onWeaponPickup;
 
-    [SerializeField] GameObject playersEquipedWeapon;
+    GameObject playersEquipedWeapon;
 
     WeaponConfigSO weaponConfig = null;
 
     PlayerController playerController;
+
+    [Header("Destroy after x Amout of Time (in s)")]
+    [SerializeField] float destroyAfterAmountOfTime = 300f;
+
 
     private void Start()
     {
@@ -32,6 +36,11 @@ public class PickupWeapon : MonoBehaviour
         GetUIcomponentInChild();
     }
 
+    private void OnEnable()
+    {
+        DestroyGameObjectAfterAmountOfTime(destroyAfterAmountOfTime);
+    }
+
     private void GetUIcomponentInChild()
     {
         Array.ForEach(transform.GetComponentsInChildren<Transform>(true), element =>
@@ -42,6 +51,11 @@ public class PickupWeapon : MonoBehaviour
             }
         });
 
+    }
+
+    void DestroyGameObjectAfterAmountOfTime(float timer)
+    {
+        Destroy(this.gameObject, timer);
     }
 
     private void OnMouseOver()

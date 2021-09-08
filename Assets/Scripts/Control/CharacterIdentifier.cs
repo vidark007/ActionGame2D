@@ -42,17 +42,7 @@ public class CharacterIdentifier : MonoBehaviour
         //preventing Error => MagicString in Fighter
         SetThisGameobjectName();
 
-        //StartCoroutine(SetCharacterValuesOnAwake());
         StartCoroutine(ExecutingOrder());
-/*
-        if (IsWeaponCarrierCharacter())
-        {
-            AddWeaponReferenceAndDamage(null, GetComponentInChildren<DistanceWeapon>().GetEquippedWeapon());
-        }
-        else
-        {
-            AddWeaponReferenceAndDamage(null, null);
-        }*/
 
     }
 

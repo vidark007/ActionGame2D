@@ -82,7 +82,7 @@ public class SpawnController : MonoBehaviour
 
         if (enemy.GetComponent<DropController>() != null)
         {
-            enemy.GetComponent<DropController>().enabled = false;
+           // enemy.GetComponent<Health>().;
         }
 
         if (enemy.tag != InGameTags.EnemyInnvocation.ToString())

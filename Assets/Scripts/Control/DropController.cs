@@ -36,7 +36,9 @@ public class DropController : MonoBehaviour
     {
         Vector2 startingPosition = transform.position;
 
-        int randomNbr = Random.Range(0, 100);
+        float randomNbr = Random.Range(0, 100f);
+
+        Debug.Log(randomNbr);
 
         foreach (KeyValuePair<GameObject, float> item in itemList)
         {
