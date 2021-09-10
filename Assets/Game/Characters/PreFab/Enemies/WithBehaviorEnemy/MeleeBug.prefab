@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624cc9867a053404e9a50a8c11a3e82b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 8
 --- !u!210 &2117245060353706513
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -470,14 +470,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd43211a4bc0d947a936d16e5744d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-  - {fileID: 3557716045106477407, guid: eb1050ecd24254241bab485b4c0f0d46, type: 3}
-  - {fileID: 7785303824196055729, guid: 06b6b6832c960804d86000564917aa71, type: 3}
-  - {fileID: 5522494336233196193, guid: dac085e7cb9445349a9b6954216b67f2, type: 3}
-  dropPercent:
-  - 10
-  - 20
-  - 90
+  itemCharacteristics:
+  - percentChance: 40
+    prefab: {fileID: 6632215145998000358, guid: d89225fd461cb0841a984e9668f8fe63, type: 3}
+    quantityMaxNumber: 2
+  - percentChance: 50
+    prefab: {fileID: 5522494336233196193, guid: dac085e7cb9445349a9b6954216b67f2, type: 3}
+    quantityMaxNumber: 1
+  - percentChance: 30
+    prefab: {fileID: 7785303824196055729, guid: 06b6b6832c960804d86000564917aa71, type: 3}
+    quantityMaxNumber: 1
 --- !u!1 &2117245060412288475
 GameObject:
   m_ObjectHideFlags: 0

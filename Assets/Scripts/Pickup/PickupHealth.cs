@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickupHealth : MonoBehaviour
 {
-    [SerializeField] float healingAmount = 5f;
+    float healingAmount = 5f;
 
     [Header("Destrroy after x Amout of Time (in s)")]
     [SerializeField] float destroyAfterAmountOfTime = 300f;
@@ -19,9 +19,7 @@ public class PickupHealth : MonoBehaviour
 
                 DestroyGameObjectAfterAmountOfTime(0f);
             }
-        }
-
-        
+        }      
     }
 
     private void Start()

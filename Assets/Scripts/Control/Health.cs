@@ -90,7 +90,6 @@ public class Health : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        Debug.Log("Dead");
         gameObject.SetActive(false);
         //play die animation
 

@@ -4,32 +4,14 @@ using UnityEngine;
 
 public class DropController : MonoBehaviour
 {
-    [SerializeField] GameObject[] item;
-    [SerializeField] float[] dropPercent;
+    [SerializeField] List<Item> itemCharacteristics;
 
-    Dictionary<GameObject,float> itemList;
-
-    private void Start()
+    [System.Serializable]
+    public class Item
     {
-        SetItemDictionnaryValues();
-    }
-
-    private void SetItemDictionnaryValues()
-    {
-        itemList = new Dictionary<GameObject, float>();
-
-        if (item.Length == dropPercent.Length)
-        {
-            for (int i = 0; i < item.Length; i++)
-            {
-                itemList.Add(item[i], dropPercent[i]);
-            }
-        }
-        else
-        {
-            Debug.LogError("Itemlist and DropPercentList are not equal");
-        }
-
+        public float percentChance;
+        public GameObject prefab;
+        public int quantityMaxNumber;
     }
 
     public void InstiateLotItem()
@@ -40,15 +22,33 @@ public class DropController : MonoBehaviour
 
         Debug.Log(randomNbr);
 
-        foreach (KeyValuePair<GameObject, float> item in itemList)
+        foreach(Item item in itemCharacteristics)
         {
-            if(randomNbr <= item.Value)
+            if (randomNbr <= item.percentChance)
             {
-                
-                Vector2 spawnPosition = startingPosition + new Vector2(UnityEngine.Random.Range(-5.0f, 5.0f), UnityEngine.Random.Range(-5.0f, 5.0f));
-                Instantiate(item.Key, spawnPosition, Quaternion.identity);
+                float quantityNumber = GenerateQuantityNumber(item);
+
+                for (int i = 0; i < quantityNumber; i++)
+                {
+                    Vector2 spawnPosition = startingPosition + new Vector2(UnityEngine.Random.Range(-5.0f, 5.0f), UnityEngine.Random.Range(-5.0f, 5.0f));
+                    Instantiate(item.prefab, spawnPosition, Quaternion.identity);
+                }
             }
         }
     }
-    
+
+    private static float GenerateQuantityNumber(Item itemQuantity)
+    {
+        float quantity;
+
+        if (itemQuantity.quantityMaxNumber != 1 && itemQuantity.quantityMaxNumber != 0)
+        {
+            quantity = Random.Range(1, itemQuantity.quantityMaxNumber);
+        }
+        else
+        {
+            quantity = itemQuantity.quantityMaxNumber;
+        }
+        return quantity;
+    }
 }

@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 0
+  maxHealth: 0
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -194,6 +195,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerBetweenAttack: 0
   meleeAttackSpeed: 8
+  projectileSpawnPosition: {fileID: 0}
+  projectilePooler: {fileID: 0}
 --- !u!114 &2787572779595014887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,10 +228,6 @@ MonoBehaviour:
   weaponConfig: {fileID: 0}
   characterDamage: 0
   attackRange: 0
-  isSummmoner: 0
-  summonRange: 0
-  summonCoolDownTimer: 0
-  innvocationPrefab: {fileID: 0}
 --- !u!114 &2787572779595014876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5e19be3f04a874cb3215643962caab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPosition: {x: 0, y: 0}
   alertRadius: 16
   suspicousTime: 5
   chasingMaxDistance: 40
@@ -260,8 +260,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd43211a4bc0d947a936d16e5744d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: []
-  dropPercent: []
+  itemCharacteristics:
+  - percentChance: 50
+    prefab: {fileID: 5522494336233196193, guid: dac085e7cb9445349a9b6954216b67f2, type: 3}
+    quantityMaxNumber: 2
+  - percentChance: 40
+    prefab: {fileID: 6632215145998000358, guid: d89225fd461cb0841a984e9668f8fe63, type: 3}
+    quantityMaxNumber: 3
+  - percentChance: 20
+    prefab: {fileID: 3557716045106477407, guid: eb1050ecd24254241bab485b4c0f0d46, type: 3}
+    quantityMaxNumber: 1
 --- !u!1 &2787572779744615083
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3b86287fa662f24ba1d960dfc457a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectToPoolPrefab: {fileID: 0}
   objectPoolersList: []
   amount: 4
   poolerTyp: 0
