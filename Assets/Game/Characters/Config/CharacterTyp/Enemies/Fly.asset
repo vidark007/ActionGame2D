@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Fly
   m_EditorClassIdentifier: 
   baseHealth: 10
-  baseRangeCapacity: 10
+  baseRangeCapacity: 14
   baseDamageAmount: 5
-  attackCoolDownTimer: 0.5
   canSummon: 0
+  attackCoolDownTimer: 0.5
   characterClass: 1
   hasAnAttackAnimation: 1
   summonRange: 0

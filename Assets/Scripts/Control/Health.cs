@@ -5,6 +5,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using ActionGame.Stats;
 
+[System.Serializable]
+public class EventHealthSender : UnityEvent<float>
+{
+}
+
 public class Health : MonoBehaviour
 {
     [SerializeField]  float healthPoints;
@@ -13,11 +18,21 @@ public class Health : MonoBehaviour
     [SerializeField] UnityEvent onDamage;
     [SerializeField] UnityEvent onDieEvent;
 
+    public EventHealthSender m_healthEventSender;
+
     bool isDead = false;
+    
+
 
     private void Start()
     {
         SetHealtOnAwake();
+
+        if(m_healthEventSender == null)
+        {
+            m_healthEventSender = new EventHealthSender();
+        }
+
     }
     private void OnEnable()
     {
@@ -56,6 +71,7 @@ public class Health : MonoBehaviour
         else
         {
             onDamage.Invoke();
+            m_healthEventSender.Invoke(healthPoints /100);
         }
 
     }

@@ -43,10 +43,6 @@ public class Pooler : MonoBehaviour
         {
             if (characterIdentifier != null)
             {
-/*                if (characterIdentifier.IsPlayer())
-                {
-                    InstaniatePrefabToPool(characterIdentifier.GetCurrentWeapon().GetProjectile());
-                }*/
                 if (!characterIdentifier.IsPlayer())
                 {
                     if (characterIdentifier.IsCharacterDistanceClass())
@@ -98,12 +94,6 @@ public class Pooler : MonoBehaviour
             if(poolerTyp == PoolerTyp.ProjectilePooler)
             {
                 Projectile projectile = objectToAddInPool.GetComponent<Projectile>();
-
-                /*                if (characterIdentifier.IsPlayer())
-                                {
-                                    projectile.SetIsPlayerComponent(characterIdentifier.IsPlayer());
-
-                                }*/
 
                 bool isPlayer = characterIdentifier.IsPlayer();
                 projectile.SetIsPlayerComponent(isPlayer);
